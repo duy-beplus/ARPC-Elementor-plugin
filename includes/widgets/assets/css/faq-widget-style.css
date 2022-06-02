@@ -1,0 +1,131 @@
+/* Import Icon */
+@import url('https://css.gg/chevron-down.css');
+.faqs-section{
+  width: 49%;
+}
+.faqs-section p{
+  margin: 0;
+}
+.faqs-heading{
+  display: flex;
+  justify-content: space-between;
+}
+.btn-faqs-share{
+  font-size: 16px;
+  cursor: pointer;
+  background: transparent!important;
+  border: none!important;
+  padding: 2px!important;
+}
+.fa-link{
+  padding-left: 6px;
+}
+.faqs-list-box{
+  padding: 30px 0;
+}
+.faqs-share-block .share-socials-block{
+  display: none;
+}
+.faqs-list-item .list-item-question{
+  display: flex;
+  justify-content: space-between;
+}
+.faqs-list-item{
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+.list-item-question{
+  cursor: pointer;
+}
+.gg-chevron-down::after{
+  margin-top: -2px;
+}
+.list-item-answer{
+  padding-top: 10px;
+  display: none;
+}
+.list-item-question.active{
+  display: flex;
+}
+.gg-chevron-down::after{
+  width: 8px;
+  height: 8px;
+  top: 6px;
+}
+.faqs-share-block{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.share-socials-block{
+  position: absolute;
+  transform: translateY(-40px);
+}
+.faqs-share-block .essb_links{
+  margin: 0!important;
+}
+.active {
+  display: none;
+}
+.inactive {
+  display: block!important;
+}
+.gg-chevron-up {
+    box-sizing: border-box;
+    position: relative;
+    display: none;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    border-radius: 100px
+}
+.gg-chevron-up::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    transform: rotate(-45deg);
+    left: 4px;
+    bottom: 2px;
+}
+
+
+/* Resposive */
+@media only screen and (max-width : 1024px) {
+  .faqs-section{
+    width: 70%;
+  }
+  .faqs-heading-title{
+    font-size: 36px!important;
+    line-height: 40px!important;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .faqs-section{
+    width: 90%;
+  }
+  .faqs-heading-title{
+    font-size: 32px!important;
+    line-height: 36px!important;
+  }
+  .question{
+    font-size: 16px!important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .faqs-section{
+    width: 100%;
+  }
+  .faqs-heading-title{
+    font-size: 28px!important;
+    line-height: 32px!important;
+  }
+  .faqs-list-item{
+    padding-top: 8px;
+    padding-bottom: 16px;
+  }
+}

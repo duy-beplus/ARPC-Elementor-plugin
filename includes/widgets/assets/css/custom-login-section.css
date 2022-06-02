@@ -1,0 +1,78 @@
+.login-section {
+    transition: all 0.3s ease-in;
+    display: block;
+    opacity: 1;
+}
+
+.login-section-hide {
+    display: none;
+}
+
+.login-visible {
+    opacity: 0;
+}
+
+.login-section-close {
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    transition: all 0.3;
+}
+
+.login-section-close button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-section-close i {
+    font-size: 24px;
+    color: #0065f2;
+}
+
+.login-section-button:hover {
+    color: #0065f2 !important;
+    background-color: #ffff !important;
+    text-decoration: none !important;
+}
+
+.login-section-close {
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 35px;
+    right: 40px;
+}
+
+.login-section-close button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.login-section-close i {
+    font-size: 24px;
+    color: #0065f2;
+}
+
+.login-section-desc, .login-section-heading {
+    max-width: 540px;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 767px) {
+    .login-section {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .login-section-close {
+        top: 10px;
+        right: 10px;
+    }
+}

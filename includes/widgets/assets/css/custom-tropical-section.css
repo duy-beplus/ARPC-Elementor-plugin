@@ -1,0 +1,157 @@
+.wrap-background {
+    width: 100%;
+    height: 100%;
+}
+
+.tropical-section {
+    display: flex;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.tropical-section-left {
+    width: 60%;
+}
+
+.tropical-section-right {
+    width: 40%;
+}
+
+.useful-links-item {
+    display: block;
+}
+
+
+.tropical-section-hide {
+    display: none;
+    transition: all 0.5s;
+}
+
+.tropical-visible {
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+@media (max-width: 1024px) {
+    .tropical-section {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .tropical-section-left, .tropical-section-right {
+        width: 100%;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+    }
+}
+
+.tropical-section-left {
+    max-width: 635px;
+}
+
+.tropical-section-right {
+    padding-left: 125px;
+}
+
+.tropical-section-right .useful-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tropical-section-right .useful-links-item {
+    display: flex;
+    align-items: center;
+}
+
+.tropical-section-right .useful-links a:hover {
+    color: #0065f2;
+}
+
+.tropical-section-right .useful-links a::after {
+    content: '\f105';
+    font-family: "Font Awesome 5 free";
+    font-weight: 600;
+    padding-left: 6px;
+    font-size: 12px;
+}
+
+.tropical-section-right .useful-follow i {
+    color: #ffff;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.tropical-section-right .useful-follow a:hover {
+    color: #0065f2;
+}
+
+.tropical-section-right .useful-follow p {
+    font-family: "HelveticaNeue", Sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5em;
+    letter-spacing: 0.1px;
+    color: #FFFFFF;
+}
+
+.tropical-section-right .useful-follow {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.tropical-section-right .useful-follow p a {
+    color: #FFFF;
+    text-decoration: underline;
+}
+
+.tropical-section-button {
+    transition: all 0.3s;
+}
+
+.tropical-section-button:hover {
+    background-color: transparent !important;
+}
+
+.tropical-section-close {
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 35px;
+    right: 40px;
+}
+
+.tropical-section-close button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.tropical-section-close i {
+    font-size: 24px;
+    color: #ffff;
+}
+
+@media (max-width: 767px) {
+    .tropical-section-close {
+        top: 10px;
+        right: 10px;
+    }
+
+    .tropical-section {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+}
+
+.featured-section {
+    transition: all 0.3s ease-in;
+    display: block;
+    opacity: 1;
+}
