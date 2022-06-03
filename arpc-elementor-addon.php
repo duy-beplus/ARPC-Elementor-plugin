@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:  ARPC Elementor Addon
- * Description: Custom Elementor Widgets on ARPC Project.
+ * Description: Custom Elementor Widgets on ARPC devsite.
  * Plugin URI:  https://elementor.com/
  * Version:     1.1.1
  * Author:      Beplus
