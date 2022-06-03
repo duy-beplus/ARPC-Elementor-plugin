@@ -8,6 +8,7 @@
 .team_member-section {
     max-width: 950px;
     margin: 0 auto;
+    padding-bottom: 50px;
 }
 
 .team_member-section-list {
@@ -26,6 +27,10 @@
     cursor: pointer;
     margin-bottom: 60px;
     margin-top: 32px;
+}
+
+.team_member-section-list-item:hover {
+    opacity: 1;
 }
 
 .list-active {
@@ -153,7 +158,6 @@
 }
 
 .team_member-expand {
-    margin-top: 60px;
     padding-bottom: 30px;
     display: flex;
     flex-direction: column;

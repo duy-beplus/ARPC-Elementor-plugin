@@ -532,24 +532,24 @@ class CustomCultureSectionWidget extends Widget_base
             ]
         );
 
-        $this->add_responsive_control(
-            'sliders_per_view',
-            [
-                'label' => 'Slides Per View',
-                'type' => Controls_Manager::SELECT,
-                'default' => '3',
-                'tablet_default' => '2',
-                'mobile_default' => '1',
-                'options' => [
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
-                ],
-            ]
-        );
+        // $this->add_responsive_control(
+        //     'sliders_per_view',
+        //     [
+        //         'label' => 'Slides Per View',
+        //         'type' => Controls_Manager::SELECT,
+        //         'default' => '3',
+        //         'tablet_default' => '2',
+        //         'mobile_default' => '1',
+        //         'options' => [
+        //             '1' => '1',
+        //             '2' => '2',
+        //             '3' => '3',
+        //             '4' => '4',
+        //             '5' => '5',
+        //             '6' => '6',
+        //         ],
+        //     ]
+        // );
 
         $repeater = new Repeater();
 
@@ -856,9 +856,9 @@ class CustomCultureSectionWidget extends Widget_base
     {
         $settings = $this->get_settings_for_display();
 
-        $slides_per_view = $this->get_settings_for_display('sliders_per_view') ? $this->get_settings_for_display('sliders_per_view') : 1;
-        $slides_per_view_tablet = $this->get_settings_for_display('sliders_per_view_tablet') ? $this->get_settings_for_display('sliders_per_view_tablet') : $slides_per_view;
-        $slides_per_view_mobile = $this->get_settings_for_display('sliders_per_view_mobile') ? $this->get_settings_for_display('sliders_per_view_mobile') : $slides_per_view_tablet;
+        // $slides_per_view = $this->get_settings_for_display('sliders_per_view') ? $this->get_settings_for_display('sliders_per_view') : 1;
+        // $slides_per_view_tablet = $this->get_settings_for_display('sliders_per_view_tablet') ? $this->get_settings_for_display('sliders_per_view_tablet') : $slides_per_view;
+        // $slides_per_view_mobile = $this->get_settings_for_display('sliders_per_view_mobile') ? $this->get_settings_for_display('sliders_per_view_mobile') : $slides_per_view_tablet;
 
         // $space_between = $this->get_settings_for_display('space_between')['size'] ? $this->get_settings_for_display('space_between')['size'] : 30;
         // $space_between_tablet = $this->get_settings_for_display('space_between_tablet')['size'] ? $this->get_settings_for_display('space_between_tablet')['size'] : $space_between;
@@ -866,7 +866,7 @@ class CustomCultureSectionWidget extends Widget_base
 
 
         $swiper_data = array(
-            'slidesPerView' => $slides_per_view_mobile,
+            'slidesPerView' => 1,
             'spaceBetween' => 20,
             'speed' => $settings['speed'],
             'loop' => $settings['loop'] == 'yes' ? true : false,
@@ -876,7 +876,7 @@ class CustomCultureSectionWidget extends Widget_base
                 //     'spaceBetween' => 20,
                 // ),
                 1024 => array(
-                    'slidesPerView' => /* $slides_per_view */ 1,
+                    'slidesPerView' => 1/* $slides_per_view */,
                     'spaceBetween' => 20,
                 )
             ),
