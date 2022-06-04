@@ -275,7 +275,6 @@ class CustomTropicalSectionWidget extends Widget_Base
                 'description' => 'This will be Show/Hide your Button type',
                 'label_on' => 'Show',
                 'Label_off' => 'Hide',
-                'label_block' => true
             ]
         );
         $this->add_control(
@@ -307,7 +306,6 @@ class CustomTropicalSectionWidget extends Widget_Base
                 'description' => 'This will be Show/Hide your Close Button type',
                 'label_on' => 'Show',
                 'Label_off' => 'Hide',
-                'label_block' => true
             ]
         );
         $this->end_controls_section();

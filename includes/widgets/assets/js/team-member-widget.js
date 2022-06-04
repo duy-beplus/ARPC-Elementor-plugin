@@ -1,8 +1,41 @@
+(function ($) {
+    /**
+       * @param $scope The Widget wrapper element as a jQuery element
+     * @param $ The jQuery alias
+     */
+    var WidgetHelloWorldHandler = function ($scope, $) {
+        var tabBoard = $scope.find('#tab-board')
+        tabBoard.addClass('list-active')
+        var board = $scope.find('#board')
+        board.css('display', 'block')
+        var leadership = $scope.find('#leadership')
+        leadership.css('display', 'none')
+    };
+
+    // Make sure you run this code under Elementor.
+    $(window).on('elementor/frontend/init', function () {
+        elementorFrontend.hooks.addAction('frontend/element_ready/team-member-widget.default', WidgetHelloWorldHandler);
+    });
+
+    // var openTab = function ($scope, name) {
+    //     var i
+    //     var x = $scope.find('.team_member-section-posts')
+    //     for (i = 0; i < x.length; i++) {
+    //         x[i].css('display', 'none')
+    //     }
+    //     $scope.find('# ' + name + ' ').css('display', 'block');
+    // }
+    // $(window).on('elementor/frontend/init', function () {
+    //     elementorFrontend.hooks.addAction('frontend/element_ready/team-member-widget.default', openTab);
+    // });
+})(jQuery);
+
 $(document).ready(function () {
     $('#board').css('display', 'block')
     $('#leadership').css('display', 'none')
     $('#tab-board').addClass('list-active')
 })
+
 function openTab(name) {
     var i;
     var x = document.getElementsByClassName("team_member-section-posts");
