@@ -122,9 +122,42 @@ class CustomCustomerSectionWidget extends Widget_Base
                 'default' => 'yes',
             ]
         );
-
         $this->end_controls_section();
         // End Share Button  section
+
+        $this->start_controls_section(
+            'expand-btn',
+            [
+                'label' => 'Expand button',
+                'tab' => Controls_Manager::TAB_CONTENT
+            ]
+        );
+        $this->add_control(
+            'show_button_expand',
+            [
+                'label' => esc_html__('Show Full or Less', 'arpc-elementor-addon'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Full', 'arpc-elementor-addon'),
+                'label_off' => esc_html__('Less', 'arpc-elementor-addon'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'expand_text',
+            [
+                'label' => 'Expand text',
+                'type' => Controls_Manager::TEXT,
+                'default' => 'Expand to view our client listing',
+                'label_block' => 'false',
+                'condition' => [
+                    'show_button_expand' => ''
+                ]
+            ]
+
+        );
+        $this->end_controls_section();
 
         // style wrapper
         $this->start_controls_section(
@@ -317,12 +350,12 @@ class CustomCustomerSectionWidget extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
 ?>
-        <div class="customer-section-wrapper">
+        <div class="customer-section-wrapper" data-expand="<?php echo $settings['show_button_expand']; ?>" data-text-expand="<?php echo $settings['expand_text'] ?>">
             <div class="customer-section-container">
                 <div class="customer-section-heading">
                     <?php echo $settings['customer-section-heading']; ?>
                 </div>
-                <div class="customer-section-desc customer-section-desc-expand">
+                <div class="customer-section-desc">
                     <?php echo $settings['customer-section-desc']; ?>
                 </div>
             </div>
@@ -336,10 +369,12 @@ class CustomCustomerSectionWidget extends Widget_Base
                     <?php echo do_shortcode('[social-share-display display="1653549193" force="true" archive="true" custom="true" url="' . $settings['share_button_url'] . '" message="" image="" tweet="Custom tweet"]') ?>
                 </div>
             </div>
-            <div class="customer-section-more">
-                <span>Expand to view our client listing</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
+            <?php if ($settings['show_button_expand'] == '') : ?>
+                <div class="customer-section-more">
+                    <span><?php echo $settings['expand_text'] ?></span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            <?php endif; ?>
         </div>
 <?php
     }

@@ -625,8 +625,12 @@ class TeamMemberWidget extends Widget_Base
                                         <?php echo $getBoard->post_title ?>
                                     </a>
                                     <div class="post-content-info">
-                                        <?php the_field('member_position', $board) ?>
-                                        <?php the_field('member_term', $board) ?>
+                                        <div class="info-position">
+                                            <?php the_field('member_position', $board) ?>
+                                        </div>
+                                        <div class="info-term">
+                                            <?php the_field('member_term', $board) ?>
+                                        </div>
                                     </div>
                                     <div class="post-content-desc">
                                         <?php echo $getBoard->post_content; ?>
@@ -650,8 +654,12 @@ class TeamMemberWidget extends Widget_Base
                                         <?php echo $getBoard->post_title ?>
                                     </a>
                                     <div class="post-content-info">
-                                        <?php the_field('member_position', $board['repeater-board']) ?>
-                                        <?php the_field('member_term', $board['repeater-board']) ?>
+                                        <div class="info-position">
+                                            <?php the_field('member_position', $board['repeater-board']) ?>
+                                        </div>
+                                        <div class="info-term">
+                                            <?php the_field('member_term', $board['repeater-board']) ?>
+                                        </div>
                                     </div>
                                     <div class="post-content-desc">
                                         <?php echo $getBoard->post_content; ?>
@@ -698,8 +706,12 @@ class TeamMemberWidget extends Widget_Base
                                         <?php echo $getLeadership->post_title ?>
                                     </a>
                                     <div class="post-content-info">
-                                        <?php the_field('member_position', $leadership) ?>
-                                        <?php the_field('member_term', $leadership) ?>
+                                        <div class="info-position">
+                                            <?php the_field('member_position', $leadership) ?>
+                                        </div>
+                                        <div class="info-term">
+                                            <?php the_field('member_term', $leadership) ?>
+                                        </div>
                                     </div>
                                     <div class="post-content-desc">
                                         <?php echo $getLeadership->post_content; ?>
@@ -723,8 +735,12 @@ class TeamMemberWidget extends Widget_Base
                                         <?php echo $getLeadership->post_title ?>
                                     </a>
                                     <div class="post-content-info">
-                                        <?php the_field('member_position', $leadership['repeater-leadership']) ?>
-                                        <?php the_field('member_term', $leadership['repeater-leadership']) ?>
+                                        <div class="info-position">
+                                            <?php the_field('member_position', $leadership['repeater-leadership']) ?>
+                                        </div>
+                                        <div class="info-term">
+                                            <?php the_field('member_term', $leadership['repeater-leadership']) ?>
+                                        </div>
                                     </div>
                                     <div class="post-content-desc">
                                         <?php echo $getLeadership->post_content; ?>
@@ -747,11 +763,9 @@ class TeamMemberWidget extends Widget_Base
                     <?php echo do_shortcode('[social-share-display display="1653549193" force="true" archive="true" custom="true" url="' . $settings['share_button_url'] . '" message="' . $settings['sharing_message'] . '" image="' . $settings['sharing_img']['url'] . '" tweet="Custom tweet"]') ?>
                 </div>
             </div>
-
             <?php
             if ($settings['setting_full_or_less'] == '') :
             ?>
-
                 <div class="team_member-expand">
                     <span data-text-expand="<?php echo $settings['setting_expand_text'] ?>"><?php echo $settings['setting_expand_text'] ?></span>
                     <i class="fa-solid fa-chevron-down"></i>

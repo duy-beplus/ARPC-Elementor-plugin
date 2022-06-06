@@ -3,7 +3,7 @@
        * @param $scope The Widget wrapper element as a jQuery element
      * @param $ The jQuery alias
      */
-    var WidgetCustomCustomer = function ($scope, $) {
+    var WidgetCustomTeam = function ($scope, $) {
         var tabBoard = $scope.find('#tab-board')
         tabBoard.addClass('list-active')
         var board = $scope.find('#board')
@@ -15,11 +15,18 @@
             listTab.removeClass("list-active")
             $(this).addClass("list-active")
         })
+
+        // var postExpand = $scope.find('.data-post').data('expand')
+        // if (postExpand == '') {
+        //     $scope.find('.team_member-section-posts').addClass('team_member-section-posts-expand')
+        // } else {
+        //     $scope.find('.team_member-section-posts').removeClass('team_member-section-posts-expand')
+        // }
     };
 
     // Make sure you run this code under Elementor.
     $(window).on('elementor/frontend/init', function () {
-        elementorFrontend.hooks.addAction('frontend/element_ready/team-member-widget.default', WidgetCustomCustomer);
+        elementorFrontend.hooks.addAction('frontend/element_ready/team-member-widget.default', WidgetCustomTeam);
     });
 })(jQuery);
 
@@ -40,6 +47,7 @@ $(document).ready(function () {
     } else {
         $('.team_member-section-posts').removeClass('team_member-section-posts-expand')
     }
+    var textExpand = $('.team_member-expand span').data('textExpand')
     $('.team_member-expand').click(function () {
         if ($('.team_member-section-posts').hasClass('team_member-section-posts-expanded')) {
             $('.team_member-section-posts').removeClass('team_member-section-posts-expanded').css('transition', '0.3s')
