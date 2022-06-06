@@ -3,62 +3,34 @@
        * @param $scope The Widget wrapper element as a jQuery element
      * @param $ The jQuery alias
      */
-    var WidgetHelloWorldHandler = function ($scope, $) {
+    var WidgetCustomCustomer = function ($scope, $) {
         var tabBoard = $scope.find('#tab-board')
         tabBoard.addClass('list-active')
         var board = $scope.find('#board')
         board.css('display', 'block')
         var leadership = $scope.find('#leadership')
         leadership.css('display', 'none')
+        var listTab = $scope.find(".team_member-section-list-item")
+        listTab.click(function () {
+            listTab.removeClass("list-active")
+            $(this).addClass("list-active")
+        })
     };
 
     // Make sure you run this code under Elementor.
     $(window).on('elementor/frontend/init', function () {
-        elementorFrontend.hooks.addAction('frontend/element_ready/team-member-widget.default', WidgetHelloWorldHandler);
+        elementorFrontend.hooks.addAction('frontend/element_ready/team-member-widget.default', WidgetCustomCustomer);
     });
-
-    // var openTab = function ($scope, name) {
-    //     var i
-    //     var x = $scope.find('.team_member-section-posts')
-    //     for (i = 0; i < x.length; i++) {
-    //         x[i].css('display', 'none')
-    //     }
-    //     $scope.find('# ' + name + ' ').css('display', 'block');
-    // }
-    // $(window).on('elementor/frontend/init', function () {
-    //     elementorFrontend.hooks.addAction('frontend/element_ready/team-member-widget.default', openTab);
-    // });
 })(jQuery);
 
-$(document).ready(function () {
-    $('#board').css('display', 'block')
-    $('#leadership').css('display', 'none')
-    $('#tab-board').addClass('list-active')
-})
-
 function openTab(name) {
-    var i;
-    var x = document.getElementsByClassName("team_member-section-posts");
+    var i
+    var x = $('.team_member-section-posts')
     for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+        $(x[i]).css('display', 'none')
     }
-    document.getElementById(name).style.display = "block";
+    $('#' + name + ' ').css('display', 'block');
 }
-
-$(document).ready(function () {
-    $(".team_member-section-list-item").click(function () {
-        $(".team_member-section-list-item").removeClass("list-active");
-        $(this).addClass("list-active");
-    });
-})
-
-// $(document).ready(function () {
-//     var getNumberPost = $('.data-post').data('numberPost')
-//     console.log(getNumberPost)
-//     $('.team_member-expand').click(function () {
-//         $('.data-post').attr("data-number-post", "3")
-//     })
-// })
 
 $(document).ready(function () {
     var postExpand = $('.data-post').data('expand')
@@ -85,3 +57,18 @@ $(document).ready(function () {
         }
     })
 })
+
+// $(document).ready(function () {
+//     $(".team_member-section-list-item").click(function () {
+//         $(".team_member-section-list-item").removeClass("list-active");
+//         $(this).addClass("list-active");
+//     });
+// })
+
+// $(document).ready(function () {
+//     var getNumberPost = $('.data-post').data('numberPost')
+//     console.log(getNumberPost)
+//     $('.team_member-expand').click(function () {
+//         $('.data-post').attr("data-number-post", "3")
+//     })
+// })
