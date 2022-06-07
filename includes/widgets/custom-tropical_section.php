@@ -317,6 +317,16 @@ class CustomTropicalSectionWidget extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs(
+            'button_style_tabs'
+        );
+        // Start control Normal tab for Button
+        $this->start_controls_tab(
+            'button_style_normal',
+            [
+                'label' => 'Normal',
+            ]
+        );
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -399,6 +409,46 @@ class CustomTropicalSectionWidget extends Widget_Base
                 'selector' => '{{WRAPPER}} .tropical-section-button',
             ]
         );
+        $this->end_controls_tab();
+        // End control Normal tab for button
+        // Start Hover tab for Button
+        $this->start_controls_tab(
+            'button_style_hover',
+            [
+                'label' => 'Hover',
+            ]
+        );
+        $this->add_control(
+            'color-button-text-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Text color',
+                'selectors' => [
+                    '{{WRAPPER}} .tropical-section-button:hover' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_control(
+            'color-button-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Button color',
+                'selectors' => [
+                    '{{WRAPPER}} .tropical-section-button:hover' => 'background-color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'border-button-hover',
+                'label' => 'Border',
+                'selector' => '{{WRAPPER}} .tropical-section-button:hover',
+            ]
+        );
+        $this->end_controls_tab();
+        // End Hover control tab for button
+        $this->end_controls_tabs();
         $this->end_controls_section();
         // Add Useful link control
         $this->start_controls_section(
@@ -476,7 +526,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->start_controls_section(
             'useful-link',
             [
-                'label' => 'Useful links',
+                'label' => 'Useful links Heading',
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -528,6 +578,16 @@ class CustomTropicalSectionWidget extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs(
+            'userful-link-style'
+        );
+        // Start Normal tab style for useful link
+        $this->start_controls_tab(
+            'uselful-link-normal',
+            [
+                'label' => 'Normal'
+            ]
+        );
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -567,6 +627,28 @@ class CustomTropicalSectionWidget extends Widget_Base
                 ],
             ]
         );
+        $this->end_controls_tab();
+        // End Normal tab style for useful link
+        // Start Hover tab for Useful link
+        $this->start_controls_tab(
+            'uselful-link-hover',
+            [
+                'label' => 'Hover'
+            ]
+        );
+        $this->add_control(
+            'color-usefullink-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Color',
+                'selectors' => [
+                    '{{WRAPPER}} .useful-links-item:hover' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->end_controls_tab();
+        // End Hover tab for Useful link
+        $this->end_controls_tabs();
         $this->end_controls_section();
     }
     // Render

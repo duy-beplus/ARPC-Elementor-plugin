@@ -112,9 +112,9 @@
     transition: all 0.3s;
 }
 
-.tropical-section-button:hover {
+/* .tropical-section-button:hover {
     background-color: transparent !important;
-}
+} */
 
 .tropical-section-close {
     display: inline-block;

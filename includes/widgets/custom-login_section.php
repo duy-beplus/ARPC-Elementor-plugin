@@ -141,19 +141,19 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_control(
             'text_align-heading',
             [
-                'label' => esc_html__('Alignment', 'plugin-name'),
+                'label' => 'Alignment',
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__('Left', 'plugin-name'),
+                        'title' => 'Left',
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__('Center', 'plugin-name'),
+                        'title' => 'Center',
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__('Right', 'plugin-name'),
+                        'title' => 'Right',
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -317,6 +317,15 @@ class CustomLoginSectionWidget extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs(
+            'button_style_tabs'
+        );
+        $this->start_controls_tab(
+            'button-normal',
+            [
+                'label' => 'Normal'
+            ]
+        );
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -399,6 +408,46 @@ class CustomLoginSectionWidget extends Widget_Base
                 'selector' => '{{WRAPPER}} .login-section-button',
             ]
         );
+        $this->end_controls_tab();
+        // End Normal tab for button
+        // Start Hover tab for Button
+        $this->start_controls_tab(
+            'button_style_hover',
+            [
+                'label' => 'Hover',
+            ]
+        );
+        $this->add_control(
+            'color-button-text-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Text color',
+                'selectors' => [
+                    '{{WRAPPER}} .login-section-button:hover' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_control(
+            'color-button-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Button color',
+                'selectors' => [
+                    '{{WRAPPER}} .login-section-button:hover' => 'background-color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'border-button-hover',
+                'label' => 'Border',
+                'selector' => '{{WRAPPER}} .tropical-section-button:hover',
+            ]
+        );
+        $this->end_controls_tab();
+        // End Hover control tab for button
+        $this->end_controls_tabs();
         $this->end_controls_section();
     }
     // Render
