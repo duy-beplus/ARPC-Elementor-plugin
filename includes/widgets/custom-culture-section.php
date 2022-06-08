@@ -860,9 +860,9 @@ class CustomCultureSectionWidget extends Widget_base
         // $slides_per_view_tablet = $this->get_settings_for_display('sliders_per_view_tablet') ? $this->get_settings_for_display('sliders_per_view_tablet') : $slides_per_view;
         // $slides_per_view_mobile = $this->get_settings_for_display('sliders_per_view_mobile') ? $this->get_settings_for_display('sliders_per_view_mobile') : $slides_per_view_tablet;
 
-        // $space_between = $this->get_settings_for_display('space_between')['size'] ? $this->get_settings_for_display('space_between')['size'] : 30;
-        // $space_between_tablet = $this->get_settings_for_display('space_between_tablet')['size'] ? $this->get_settings_for_display('space_between_tablet')['size'] : $space_between;
-        // $space_between_mobile = $this->get_settings_for_display('space_between_mobile')['size'] ? $this->get_settings_for_display('space_between_mobile')['size'] : $space_between_tablet;
+        $space_between = $this->get_settings_for_display('space_between')['size'] ? $this->get_settings_for_display('space_between')['size'] : 30;
+        $space_between_tablet = $this->get_settings_for_display('space_between_tablet')['size'] ? $this->get_settings_for_display('space_between_tablet')['size'] : $space_between;
+        $space_between_mobile = $this->get_settings_for_display('space_between_mobile')['size'] ? $this->get_settings_for_display('space_between_mobile')['size'] : $space_between_tablet;
 
 
         $swiper_data = array(
@@ -871,10 +871,10 @@ class CustomCultureSectionWidget extends Widget_base
             'speed' => $settings['speed'],
             'loop' => $settings['loop'] == 'yes' ? true : false,
             'breakpoints' => array(
-                // 767 => array(
-                //     'slidesPerView' => /* $slides_per_view_tablet */ 1,
-                //     'spaceBetween' => 20,
-                // ),
+                767 => array(
+                    'slidesPerView' => /* $slides_per_view_tablet */ 1,
+                    'spaceBetween' => 20,
+                ),
                 1024 => array(
                     'slidesPerView' => 1/* $slides_per_view */,
                     'spaceBetween' => 20,
@@ -1067,7 +1067,7 @@ class CustomCultureSectionWidget extends Widget_base
          *
          * @access protected
          */
-        protected function content_template()
+        protected function _content_template()
         {
         }
     }

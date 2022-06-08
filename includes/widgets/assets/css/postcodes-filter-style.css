@@ -1,0 +1,59 @@
+@import url('https://css.gg/software-download.css');
+
+.postcodes-filter-inner{
+  width: 100%;
+  font-size: 18px;
+  max-width: 540px;
+  margin: auto;
+}
+.postcodes-filter-form{
+
+}
+.postcodes-filter-form .label{
+  width: 90px;
+}
+#postcodes-number{
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding: 8px;
+  max-width: 100px;
+  height: 34px;
+  font-size: 18px;
+}
+#postcodes-states{
+  padding: 0 8px;
+  cursor: pointer;
+  height: 34px;
+}
+#postcodes-tiers{
+  padding: 0 8px;
+  height: 34px;
+  cursor: pointer;
+}
+._flex_wrap{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.result-description-wrapper{
+  justify-content: space-between;
+}
+.btn-download-excel {
+  display: flex;
+  align-items: center;
+  color: #0065f2;
+}
+.btn-download-excel .gg-software-download{
+  margin-right: 10px;
+}
+#postcodes-table th{
+  padding: 10px 15px;
+  background-color: #0065f2;
+  color: #fff;
+  border: 1px solid #ccc;
+}
+#postcodes-table td{
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+}

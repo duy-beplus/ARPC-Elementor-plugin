@@ -53,7 +53,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'content_section',
       [
-        'label' => esc_html__('Content', 'community-elementor-addon'),
+        'label' => esc_html__('Content', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -61,10 +61,10 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'heading',
       [
-        'label' => esc_html__('Heading', 'community-elementor-addon'),
+        'label' => esc_html__('Heading', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 2,
-        'default' => esc_html__('Your content heading', 'community-elementor-addon'),
+        'default' => esc_html__('Your content heading', 'arpc-elementor-addon'),
         'label_block' => true,
       ]
     );
@@ -72,10 +72,10 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'content_editor',
       [
-        'label' => esc_html__('Content Editor', 'community-elementor-addon'),
+        'label' => esc_html__('Content Editor', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::WYSIWYG,
-        'placeholder' => esc_html__('Type your Content here', 'community-elementor-addon'),
-        'default' => esc_html__('Type your content here...', 'community-elementor-addon'),
+        'placeholder' => esc_html__('Type your Content here', 'arpc-elementor-addon'),
+        'default' => esc_html__('Type your content here...', 'arpc-elementor-addon'),
       ]
     );
 
@@ -85,7 +85,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'navigation_section',
       [
-        'label' => esc_html__('Navigation', 'community-elementor-addon'),
+        'label' => esc_html__('Navigation', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -93,10 +93,10 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'navigation_heading',
       [
-        'label' => esc_html__('Navigation Heading', 'community-elementor-addon'),
+        'label' => esc_html__('Navigation Heading', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 2,
-        'default' => esc_html__('Navigation', 'community-elementor-addon'),
+        'default' => esc_html__('Navigation', 'arpc-elementor-addon'),
         'label_block' => true,
       ]
     );
@@ -106,7 +106,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $navigation_repeater->add_control(
       'navigation_list_item',
       [
-        'label' => esc_html__('List Content', 'community-elementor-addon'),
+        'label' => esc_html__('List Content', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 2,
         'label_block' => true,
@@ -116,9 +116,9 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $navigation_repeater->add_control(
       'navigation_list_link',
       [
-        'label' => esc_html__('Add Link', 'community-elementor-addon'),
+        'label' => esc_html__('Add Link', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::URL,
-        'placeholder' => esc_html__('https://your-link.com', 'community-elementor-addon'),
+        'placeholder' => esc_html__('https://your-link.com', 'arpc-elementor-addon'),
         'default' => [
           'url' => '',
           'is_external' => false,
@@ -131,18 +131,18 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'list',
       [
-        'label' => esc_html__('Navigation Repeater List', 'community-elementor-addon'),
+        'label' => esc_html__('Navigation Repeater List', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::REPEATER,
         'fields' => $navigation_repeater->get_controls(),
         'default' => [
           [
-            'navigation_list_item' => esc_html__('Content #1', 'community-elementor-addon'),
+            'navigation_list_item' => esc_html__('Content #1', 'arpc-elementor-addon'),
           ],
           [
-            'navigation_list_item' => esc_html__('Content #2', 'community-elementor-addon'),
+            'navigation_list_item' => esc_html__('Content #2', 'arpc-elementor-addon'),
           ],
           [
-            'navigation_list_item' => esc_html__('Content #3', 'community-elementor-addon'),
+            'navigation_list_item' => esc_html__('Content #3', 'arpc-elementor-addon'),
           ],
         ],
         'title_field' => '{{{ navigation_list_item }}}',
@@ -156,7 +156,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'useful_section',
       [
-        'label' => esc_html__('Useful Link and Resources', 'community-elementor-addon'),
+        'label' => esc_html__('Useful Link and Resources', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -164,10 +164,10 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'useful_heading',
       [
-        'label' => esc_html__('Useful Heading', 'community-elementor-addon'),
+        'label' => esc_html__('Useful Heading', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 2,
-        'default' => esc_html__('Useful link and resources', 'community-elementor-addon'),
+        'default' => esc_html__('Useful link and resources', 'arpc-elementor-addon'),
         'label_block' => true,
       ]
     );
@@ -177,7 +177,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $useful_repeater->add_control(
       'useful_list_item',
       [
-        'label' => esc_html__('Useful List', 'community-elementor-addon'),
+        'label' => esc_html__('Useful List', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 1,
         'label_block' => true,
@@ -187,7 +187,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $useful_repeater->add_control(
       'useful_list_icon',
       [
-        'label' => esc_html__('List Icon', 'community-elementor-addon'),
+        'label' => esc_html__('List Icon', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::ICONS,
         'default' => [
           'value' => 'fas fa-star',
@@ -199,9 +199,9 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $useful_repeater->add_control(
       'useful_list_link',
       [
-        'label' => esc_html__('Add Useful Link', 'community-elementor-addon'),
+        'label' => esc_html__('Add Useful Link', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::URL,
-        'placeholder' => esc_html__('https://your-link.com', 'community-elementor-addon'),
+        'placeholder' => esc_html__('https://your-link.com', 'arpc-elementor-addon'),
         'default' => [
           'url' => '',
           'is_external' => false,
@@ -214,18 +214,18 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'useful_list',
       [
-        'label' => esc_html__('Useful Repeater List', 'community-elementor-addon'),
+        'label' => esc_html__('Useful Repeater List', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::REPEATER,
         'fields' => $useful_repeater->get_controls(),
         'default' => [
           [
-            'useful_list_item' => esc_html__('Content #1', 'community-elementor-addon'),
+            'useful_list_item' => esc_html__('Content #1', 'arpc-elementor-addon'),
           ],
           [
-            'useful_list_item' => esc_html__('Content #2', 'community-elementor-addon'),
+            'useful_list_item' => esc_html__('Content #2', 'arpc-elementor-addon'),
           ],
           [
-            'useful_list_item' => esc_html__('Content #3', 'community-elementor-addon'),
+            'useful_list_item' => esc_html__('Content #3', 'arpc-elementor-addon'),
           ],
         ],
         'title_field' => '{{{ useful_list_item }}}',
@@ -239,7 +239,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'sharing_section',
       [
-        'label' => esc_html__('Share Page', 'community-elementor-addon'),
+        'label' => esc_html__('Share Page', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -247,10 +247,10 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'sharing_text',
       [
-        'label' => esc_html__('Button Text', 'community-elementor-addon'),
+        'label' => esc_html__('Button Text', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 1,
-        'default' => esc_html__('Share page', 'community-elementor-addon'),
+        'default' => esc_html__('Share page', 'arpc-elementor-addon'),
         'label_block' => true,
       ]
     );
@@ -258,7 +258,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'sharing_url',
       [
-        'label' => esc_html__('Sharing URL', 'community-elementor-addon'),
+        'label' => esc_html__('Sharing URL', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 2,
         'label_block' => true,
@@ -274,7 +274,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'content_style_section',
       [
-        'label' => esc_html__('Style Content', 'community-elementor-addon'),
+        'label' => esc_html__('Style Content', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -282,7 +282,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'content_heading_color',
       [
-        'label' => esc_html__('Content Heading Color', 'community-elementor-addon'),
+        'label' => esc_html__('Content Heading Color', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .content-heading' => 'color: {{VALUE}};',
@@ -293,7 +293,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__('Content Heading Typography', 'community-elementor-addon'),
+        'label' => esc_html__('Content Heading Typography', 'arpc-elementor-addon'),
         'name' => 'content_heading_typography',
         'selector' => '{{WRAPPER}} .content-heading',
       ]
@@ -303,7 +303,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'content_color',
       [
-        'label' => esc_html__('Content Color', 'community-elementor-addon'),
+        'label' => esc_html__('Content Color', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .content-editor-block' => 'color: {{VALUE}};',
@@ -314,7 +314,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__('Content Typography', 'community-elementor-addon'),
+        'label' => esc_html__('Content Typography', 'arpc-elementor-addon'),
         'name' => 'content_typography',
         'selector' => '{{WRAPPER}} .content-editor-block',
       ]
@@ -352,7 +352,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'nav_style_section',
       [
-        'label' => esc_html__('Style Navigation', 'community-elementor-addon'),
+        'label' => esc_html__('Style Navigation', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -361,7 +361,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'nav_heading_color',
       [
-        'label' => esc_html__('Nav Heading Color', 'community-elementor-addon'),
+        'label' => esc_html__('Nav Heading Color', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .nav-heading' => 'color: {{VALUE}};',
@@ -373,7 +373,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__('Nav Heading Typography', 'community-elementor-addon'),
+        'label' => esc_html__('Nav Heading Typography', 'arpc-elementor-addon'),
         'name' => 'nav_heading_typography',
         'selector' => '{{WRAPPER}} .nav-heading',
       ]
@@ -382,7 +382,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__('Nav Subheading Typography', 'community-elementor-addon'),
+        'label' => esc_html__('Nav Subheading Typography', 'arpc-elementor-addon'),
         'name' => 'nav_subheading_typography',
         'selector' => '{{WRAPPER}} .nav-excerpt',
       ]
@@ -392,7 +392,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'nav_list_color',
       [
-        'label' => esc_html__('Nav List Color', 'community-elementor-addon'),
+        'label' => esc_html__('Nav List Color', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .nav-list-link' => 'color: {{VALUE}};',
@@ -460,7 +460,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'useful_style_section',
       [
-        'label' => esc_html__('Style Useful', 'community-elementor-addon'),
+        'label' => esc_html__('Style Useful', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -469,7 +469,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'useful_heading_color',
       [
-        'label' => esc_html__('Use Heading Color', 'community-elementor-addon'),
+        'label' => esc_html__('Use Heading Color', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .useful-heading' => 'color: {{VALUE}};',
@@ -480,7 +480,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__('Useful Heading Typography', 'community-elementor-addon'),
+        'label' => esc_html__('Useful Heading Typography', 'arpc-elementor-addon'),
         'name' => 'useful_heading_typography',
         'selector' => '{{WRAPPER}} .useful-heading',
       ]
@@ -490,7 +490,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'useful_icon_list_color',
       [
-        'label' => esc_html__('Useful Icon List Color', 'community-elementor-addon'),
+        'label' => esc_html__('Useful Icon List Color', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .useful-icon-wrapper' => 'color: {{VALUE}};',
@@ -502,7 +502,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__('Useful Icon List Typography', 'community-elementor-addon'),
+        'label' => esc_html__('Useful Icon List Typography', 'arpc-elementor-addon'),
         'name' => 'useful_icon_list_typography',
         'selector' => '{{WRAPPER}} .useful-icon-wrapper',
         'selector' => '{{WRAPPER}} .useful-list-link',
@@ -560,7 +560,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->start_controls_section(
       'sharing_style_section',
       [
-        'label' => esc_html__('Style Text Button', 'community-elementor-addon'),
+        'label' => esc_html__('Style Text Button', 'arpc-elementor-addon'),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -568,7 +568,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_control(
       'sharing_text_color',
       [
-        'label' => esc_html__('Text Color', 'community-elementor-addon'),
+        'label' => esc_html__('Text Color', 'arpc-elementor-addon'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .btn-sharing' => 'color: {{VALUE}};',
@@ -579,7 +579,7 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__('Text Typography', 'community-elementor-addon'),
+        'label' => esc_html__('Text Typography', 'arpc-elementor-addon'),
         'name' => 'sharing_text_typography',
         'selector' => '{{WRAPPER}} .btn-sharing',
       ]
