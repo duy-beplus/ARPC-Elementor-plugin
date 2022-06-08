@@ -32,11 +32,11 @@
     color: #0065f2;
 }
 
-/* .login-section-button:hover {
+.login-section-button:hover {
     color: #0065f2 !important;
     background-color: #ffff !important;
     text-decoration: none !important;
-} */
+}
 
 .login-section-close {
     display: inline-block;
