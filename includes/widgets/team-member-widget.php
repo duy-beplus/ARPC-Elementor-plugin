@@ -272,35 +272,6 @@ class TeamMemberWidget extends Widget_Base
             ]
         );
         $this->end_controls_section();
-        // The board settings
-        $this->start_controls_section(
-            'board-section',
-            [
-                'label' => 'The Board',
-                'tab' => Controls_Manager::TAB_CONTENT
-            ]
-        );
-        // Get query options
-        $options = [];
-        $posts = get_posts(array(
-            'post_type'  => 'teammembers',
-            'category' => 'board'
-        ));
-
-        foreach ($posts as $post) {
-            $options[$post->ID] = $post->post_title;
-        }
-        $this->add_control(
-            'board-select',
-            [
-                'label' => 'Select Board',
-                'type' => Controls_Manager::SELECT2,
-                'multiple' => true,
-                'label_block' => 'false',
-                'options' => $options,
-            ]
-        );
-        $this->end_controls_section();
     }
     protected function register_style_content_controls()
     {
