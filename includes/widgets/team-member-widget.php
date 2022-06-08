@@ -272,14 +272,6 @@ class TeamMemberWidget extends Widget_Base
             ]
         );
         $this->end_controls_section();
-        // The board settings
-        $this->start_controls_section(
-            'board-section',
-            [
-                'label' => 'The Board',
-                'tab' => Controls_Manager::TAB_CONTENT
-            ]
-        );
         // Get query options
         $options = [];
         $posts = get_posts(array(
