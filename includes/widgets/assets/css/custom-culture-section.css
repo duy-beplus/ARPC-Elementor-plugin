@@ -970,7 +970,7 @@ a.img-pd-pi-pr .bt-image-pi-pr {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .culture-section-left .slide-image img {
         max-width: 480px !important;
         width: 100%;

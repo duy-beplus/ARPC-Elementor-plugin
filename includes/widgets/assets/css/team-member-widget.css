@@ -196,7 +196,7 @@
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .team_member-section-posts-item {
         gap: 20px;
         margin-bottom: 30px;

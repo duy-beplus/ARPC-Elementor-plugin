@@ -3,6 +3,11 @@ $(document).ready(function () {
     $('#leadership').css('display', 'none')
     $('#tab-board').addClass('list-active')
 })
+// document.ready(function () {
+//     document.getElementById('board').style.display = "block";
+//     document.getElementById('tab-board').classList.add("list-active");
+//     document.getElementById('leadership').style.display = "none";
+// })
 function openTab(name) {
     var i;
     var x = document.getElementsByClassName("team_member-section-posts");
@@ -18,6 +23,11 @@ $(document).ready(function () {
         $(this).addClass("list-active");
     });
 })
+
+// Even Show Share Socials Box
+$('.share-btn').click(function (e) {
+   $(this).next().slideToggle();
+});
 
 // $(document).ready(function () {
 //     var getNumberPost = $('.data-post').data('numberPost')

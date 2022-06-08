@@ -135,7 +135,7 @@
 
 .tropical-section-close i {
     font-size: 24px;
-    color: #ffff;
+    color: #0065f2;
 }
 
 @media (max-width: 767px) {
@@ -148,10 +148,4 @@
         max-width: 480px;
         margin: 0 auto;
     }
-}
-
-.featured-section {
-    transition: all 0.3s ease-in;
-    display: block;
-    opacity: 1;
 }

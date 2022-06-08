@@ -64,16 +64,18 @@ if(isset($_GET['end_date']) && $_GET['end_date'] != ''){
   data-select_team ="<?php echo $select_team; ?>">
     <div class="wrrap-content-filter">
       <div class="form-content-filter">
-         <input type="text" class="typeahead" name="key" value="<?php echo isset($_GET['key']) ? $_GET['key'] : ''; ?>" placeholder="<?php echo $atts['placeholder']; ?>" autocomplete="off" required>
-         <button class="btn-removeall" data-ajax="<?php echo $ajax; ?>" required="false"><i class="fa fa-times"></i></button>
-         <button type="submit" data-ajax="<?php echo $ajax; ?>" <?php echo (!$ajax) ? 'data-redirect="'.$action.'"' : ''; ?>><i class="fa fa-search"></i></button>
+        <input type="text" class="typeahead" name="key" value="<?php echo isset($_GET['key']) ? $_GET['key'] : ''; ?>" placeholder="<?php echo $atts['placeholder']; ?>" autocomplete="off" required>
+        <div class="group-button">
+          <button class="btn-removeall" data-ajax="<?php echo $ajax; ?>" required="false"><i class="fa fa-times"></i></button>
+          <button class="btn-search" type="submit" data-ajax="<?php echo $ajax; ?>" <?php echo (!$ajax) ? 'data-redirect="'.$action.'"' : ''; ?>>Action</button>
+        </div>
       </div>
       <div class="log-error"></div>
       <div class="template-filter-form">
           <div class="__filter-suggestion">
             <?php if(!empty($suggestionTop)): ?>
               <div class="load-suggestion">
-                <?php echo __('Suggestions:','bearsthemes-addons') ?>
+                <span>Suggestions:</span>
                 <div class="list-suggestions">
                   <?php foreach ($suggestionTop as $key => $suggestion): ?>
                     <span class="btn-suggestion" data-value="<?php echo $suggestion; ?>"><?php echo $suggestion; ?></span><?php echo (($key+1) < count($suggestionTop)) ? ',' : ''; ?>
@@ -83,7 +85,7 @@ if(isset($_GET['end_date']) && $_GET['end_date'] != ''){
             <?php endif; ?>
             <?php if(!empty($filters)): ?>
               <div class="btn-filter <?php echo ($default_filter) ? '__is-actived' : ''; ?>">
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 <?php echo __('Filters','bearsthemes-addons') ?>
               </div>
             <?php endif; ?>
@@ -99,11 +101,11 @@ if(isset($_GET['end_date']) && $_GET['end_date'] != ''){
                               'hide_empty' => false,
                             ) );
                     if(!empty($terms)):
-                      $checkdata = ($filter == 'ins-type') ? $types : $topics;
+                      $checkdata = ($filter == 'resources-tags') ? $types : $topics;
                       ?>
                       <div class="ica-item-filter" data-filter="<?php echo $filter ?>">
                           <div class="name-filter">
-                            <?php echo __('Filter by','bearsthemes-addons'); ?> <?php echo $taxonomy->label; ?>
+                            <?php echo __('Seclect by','bearsthemes-addons'); ?> <?php echo $taxonomy->label; ?>
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                           </div>
                           <div class="select-filter">
@@ -154,7 +156,7 @@ if(isset($_GET['end_date']) && $_GET['end_date'] != ''){
                           <div class="select-date-start">
                             <select name="date-range-start">
                               <option value=""><?php echo __('Select start year','bearsthemes-addons') ?></option>
-                              <?php for ($i=2010; $i <= $years; $i++) {
+                              <?php for ($i=2018; $i <= $years; $i++) {
                                 $selected = ($i == $start_date) ? 'selected="selected"' : '';
                                 ?><option value="<?php echo $i ?>" <?php echo $selected; ?>><?php echo $i ?></option><?php
                               } ?>
@@ -163,7 +165,7 @@ if(isset($_GET['end_date']) && $_GET['end_date'] != ''){
                           <div class="select-date-end">
                             <select name="date-range-end">
                               <option value=""><?php echo __('Select end year','bearsthemes-addons') ?></option>
-                              <?php for ($i=2010; $i <= $years; $i++) {
+                              <?php for ($i=2018; $i <= $years; $i++) {
                                 $selected = ($i == $end_date) ? 'selected="selected"' : '';
                                 ?><option value="<?php echo $i ?>" <?php echo $selected; ?>><?php echo $i ?></option><?php
                               } ?>
