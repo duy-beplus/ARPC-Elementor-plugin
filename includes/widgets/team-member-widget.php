@@ -430,6 +430,16 @@ class TeamMemberWidget extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs(
+            'title_style'
+        );
+        // Start Normal tab for title
+        $this->start_controls_tab(
+            'title_normal',
+            [
+                'label' => 'Normal'
+            ]
+        );
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -495,6 +505,28 @@ class TeamMemberWidget extends Widget_Base
                 ],
             ]
         );
+        $this->end_controls_tab();
+        // End Normal tab for title
+        // Start hover tab for title
+        $this->start_controls_tab(
+            'title_hover',
+            [
+                'label' => 'Hover'
+            ]
+        );
+        $this->add_control(
+            'style_title_color_hover',
+            [
+                'label' => 'Color',
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .post-content-title:hover' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->end_controls_tab();
+        //end Hover tab for title
+        $this->end_controls_tabs();
         $this->end_controls_section();
         // content posts
         $this->start_controls_section(
