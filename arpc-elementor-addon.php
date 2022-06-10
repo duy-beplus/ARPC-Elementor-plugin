@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // define('ELEMENT_ADDON_VER', '1.2.6' );
-define('ELEMENT_ADDON_PATH2', plugin_dir_path( __FILE__ ) );
-define('ELEMENT_ADDON_TEMPLATE2', ELEMENT_ADDON_PATH2.'templates/' );
+// define('ELEMENT_ADDON_PATH2', plugin_dir_path( __FILE__ ) );
+// define('ELEMENT_ADDON_TEMPLATE2', ELEMENT_ADDON_PATH2.'templates/' );
 
 
 function arpc_elementor_addon() {

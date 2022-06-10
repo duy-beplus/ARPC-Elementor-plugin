@@ -212,6 +212,10 @@ class Plugin
 		add_action( 'wp_ajax_load_filter_data', array( $this, 'load_filter_data_ajax' )  );
 		add_action( 'wp_ajax_nopriv_load_filter_data', array( $this, 'load_filter_data_ajax' ) );
 
+		//Postcodes Load ajax
+		add_action( 'wp_ajax_load_postcodes_data', array( $this, 'load_postcodes_data_ajax' )  );
+		add_action( 'wp_ajax_nopriv_load_postcodes_data', array( $this, 'load_postcodes_data_ajax' ) );
+
 	}
 
 	function void_grid_post_type(){
@@ -243,28 +247,72 @@ class Plugin
 	}
 
 	public function widget_scripts() {
-	
+
+	}
+	// Filter Data Postcodes by Option
+	private function filter_post_code($postcode, $state, $tier){
+
+			$filtered_arr_postcode = [];
+			$jsonString = get_field('postcodes_data', 'option');
+			$arrPostcodes = json_decode($jsonString, true);
+
+			$filtered_arr_postcode = array_filter(
+															$arrPostcodes,
+															function($arr) use ( $postcode){
+																 return $arr['Postcode'] == $postcode;
+															});
+			$filtered_arr_state = array_filter(
+														$arrPostcodes,
+														function($arr) use ( $state){
+															 return $arr['State'] == $state;
+														});
+			$filtered_arr_tier = array_filter(
+													$arrPostcodes,
+													function($arr) use ( $tier){
+														 return $arr['Tier'] == $tier;
+													});
+
+			return $filtered_arr_postcode;
+			return $filtered_arr_state;
+			return $filtered_arr_tier;
 	}
 
-	// public function __construct() {
-	//
-	// 	// // Register widget styles
-	// 	// add_action( 'elementor/frontend/after_register_styles', [ $this, 'widget_styles' ] );
-	// 	//
-	// 	// // Register widget scripts
-	// 	// add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
-	//
-	// 	// Register widgets
-	// 	// add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
-	//
-	// 	// Register editor scripts
-	// 	// add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'editor_scripts' ] );
-	//
-	// 	// Register category
-	// 	// add_action( 'elementor/elements/categories_registered', [ $this, 'add_category' ] );
-	//
-	// 	$this->add_page_settings_controls();
-	// }
+	// Load Postcodes data Ajax
+	public function load_postcodes_data_ajax(){
+		$postcode = (isset($_POST['postcode'])) ? $_POST['postcode'] : '';
+		$state = (isset($_POST['state'])) ? $_POST['state'] : '';
+    $tier = (isset($_POST['tier'])) ? $_POST['tier'] : '';
+
+		$results = $this->filter_post_code($postcode, $state, $tier);
+
+		ob_start();
+		?>
+		<!-- Result table -->
+		<table id="postcodes-table">
+			<thead>
+				<tr>
+					<th>Postcode</th>
+					<th>State</th>
+					<th>Tier</th>
+				</tr>
+			</thead>
+			<tbody id="body-table">
+			<?php
+			 foreach ($results as  $result) {
+			 ?>
+				<tr>
+					<td><?php echo $result['Postcode']; ?></td>
+					<td><?php echo $result['State']; ?></td>
+					<td><?php echo $result['Tier']; ?></td>
+				</tr>
+			<?php } ?>
+			</tbody>
+		</table>
+		<!-- /Result table -->
+		<?php
+			echo ob_get_clean();
+
+  }
 
 	//----------------Search Content Filter-------------
 	public function ica_content_filter_render( $atts ) {

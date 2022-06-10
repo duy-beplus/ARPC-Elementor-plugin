@@ -61,12 +61,11 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
     // End Content Tab
   }
 
-  protected function render()
-  {
+  protected function render() {
     $settings = $this->get_settings_for_display();
     ?>
     <div class="postcodes-filter-inner">
-      <form class="postcodes-filter-form" method="post">
+      <form class="postcodes-filter-form">
         <!-- Input Number -->
         <div class="postcodes-number-wrapper _flex_wrap">
           <label class="label" for="postcodes-number">Postcode</label>
@@ -110,31 +109,32 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
         <!-- Result Table -->
         <div class="postcodes-result-table">
           <table id="postcodes-table">
-            <tr>
-              <th>Postcode</th>
-              <th>State</th>
-              <th>Tier</th>
-            </tr>
-            <tbody id="myTable">
+            <thead>
+              <tr>
+                <th>Postcode</th>
+                <th>State</th>
+                <th>Tier</th>
+              </tr>
+            </thead>
+            <tbody id="body-table">
             <?php
              $jsonString = get_field('postcodes_data', 'option');
-             $arr = json_decode($jsonString, true);
-             foreach ($arr as $keys => $values) {
+             $arrPostcodes = json_decode($jsonString, true);
+
+            foreach ($arrPostcodes as $keys => $values) {
              ?>
-            <tr>
-              <td><?php echo $values['Postcode']; ?></td>
-              <td><?php echo $values['State']; ?></td>
-              <td><?php echo $values['Tier']; ?></td>
-            </tr>
+              <tr>
+                <td><?php echo $values['Postcode']; ?></td>
+                <td><?php echo $values['State']; ?></td>
+                <td><?php echo $values['Tier']; ?></td>
+              </tr>
             <?php } ?>
-          </tbody>
+            </tbody>
           </table>
         </div>
         <!-- Result Table -->
     </div>
     <?php
   }
-
 }
 ?>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
