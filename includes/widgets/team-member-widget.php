@@ -111,7 +111,7 @@ class TeamMemberWidget extends Widget_Base
             'post_type'  => 'teammembers',
             'tax_query' => array(
                 array(
-                    'taxonomy' => 'category',
+                    'taxonomy' => 'team-categories',
                     'field' => 'slug',
                     'terms' => 'board',
                 ),
@@ -189,7 +189,7 @@ class TeamMemberWidget extends Widget_Base
             'post_type'  => 'teammembers',
             'tax_query' => array(
                 array(
-                    'taxonomy' => 'category',
+                    'taxonomy' => 'team-categories',
                     'field' => 'slug',
                     'terms' => 'leadership',
                 ),
@@ -630,7 +630,7 @@ class TeamMemberWidget extends Widget_Base
                     'post_type'  => 'teammembers',
                     'tax_query' => array(
                         array(
-                            'taxonomy' => 'category',
+                            'taxonomy' => 'team-categories',
                             'field' => 'slug',
                             'terms' => 'board',
                         ),
@@ -718,7 +718,7 @@ class TeamMemberWidget extends Widget_Base
                             'post_type'  => 'teammembers',
                             'tax_query' => array(
                                 array(
-                                    'taxonomy' => 'category',
+                                    'taxonomy' => 'team-categories',
                                     'field' => 'slug',
                                     'terms' => 'leadership',
                                 ),

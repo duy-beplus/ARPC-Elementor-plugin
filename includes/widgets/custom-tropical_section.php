@@ -104,11 +104,47 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-background',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .tropical-section' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'close_button_color',
+            [
+                'label' => 'Close button color',
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .tropical-section-close button i' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_control(
+            'close_button_size',
+            [
+                'label' => 'Close button size',
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                        'step' => 1,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 24,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .tropical-section-close button i' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -142,7 +178,7 @@ class CustomTropicalSectionWidget extends Widget_Base
             'text_align-heading',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -166,7 +202,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-heading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -177,7 +213,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-heading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -215,7 +251,7 @@ class CustomTropicalSectionWidget extends Widget_Base
             'text_align-desc',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -239,7 +275,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-desc',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -250,7 +286,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-desc',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -317,6 +353,16 @@ class CustomTropicalSectionWidget extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs(
+            'button_style_tabs'
+        );
+        // Start control Normal tab for Button
+        $this->start_controls_tab(
+            'button_style_normal',
+            [
+                'label' => 'Normal',
+            ]
+        );
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -348,7 +394,7 @@ class CustomTropicalSectionWidget extends Widget_Base
             'text_align-button',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'flex-start' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -399,6 +445,46 @@ class CustomTropicalSectionWidget extends Widget_Base
                 'selector' => '{{WRAPPER}} .tropical-section-button',
             ]
         );
+        $this->end_controls_tab();
+        // End control Normal tab for button
+        // Start Hover tab for Button
+        $this->start_controls_tab(
+            'button_style_hover',
+            [
+                'label' => 'Hover',
+            ]
+        );
+        $this->add_control(
+            'color-button-text-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Text color',
+                'selectors' => [
+                    '{{WRAPPER}} .tropical-section-button:hover' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_control(
+            'color-button-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Button color',
+                'selectors' => [
+                    '{{WRAPPER}} .tropical-section-button:hover' => 'background-color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'border-button-hover',
+                'label' => 'Border',
+                'selector' => '{{WRAPPER}} .tropical-section-button:hover',
+            ]
+        );
+        $this->end_controls_tab();
+        // End Hover control tab for button
+        $this->end_controls_tabs();
         $this->end_controls_section();
         // Add Useful link control
         $this->start_controls_section(
@@ -476,7 +562,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->start_controls_section(
             'useful-link',
             [
-                'label' => 'Useful links',
+                'label' => 'Useful link Heading',
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -500,7 +586,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-usefulheading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -511,7 +597,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-usefulheading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -526,6 +612,16 @@ class CustomTropicalSectionWidget extends Widget_Base
             [
                 'label' => 'Useful links item',
                 'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+        $this->start_controls_tabs(
+            'userful-link-style'
+        );
+        // Start Normal tab style for useful link
+        $this->start_controls_tab(
+            'uselful-link-normal',
+            [
+                'label' => 'Normal'
             ]
         );
         $this->add_group_control(
@@ -548,7 +644,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-usefulitem',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -559,7 +655,7 @@ class CustomTropicalSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-usefulitem',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -567,6 +663,28 @@ class CustomTropicalSectionWidget extends Widget_Base
                 ],
             ]
         );
+        $this->end_controls_tab();
+        // End Normal tab style for useful link
+        // Start Hover tab for Useful link
+        $this->start_controls_tab(
+            'uselful-link-hover',
+            [
+                'label' => 'Hover'
+            ]
+        );
+        $this->add_control(
+            'color-usefullink-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Color',
+                'selectors' => [
+                    '{{WRAPPER}} .useful-links-item:hover' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->end_controls_tab();
+        // End Hover tab for Useful link
+        $this->end_controls_tabs();
         $this->end_controls_section();
     }
     // Render

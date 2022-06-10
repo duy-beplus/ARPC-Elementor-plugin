@@ -136,7 +136,7 @@ class CustomCustomerSectionWidget extends Widget_Base
             'show_button_expand',
             [
                 'label' => esc_html__('Show Full or Less', 'arpc-elementor-addon'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Full', 'arpc-elementor-addon'),
                 'label_off' => esc_html__('Less', 'arpc-elementor-addon'),
                 'return_value' => 'yes',
@@ -179,7 +179,7 @@ class CustomCustomerSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-wrapper',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -190,7 +190,7 @@ class CustomCustomerSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-wrapper',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -228,7 +228,7 @@ class CustomCustomerSectionWidget extends Widget_Base
             'text_align-heading',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -252,7 +252,7 @@ class CustomCustomerSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-heading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -263,7 +263,7 @@ class CustomCustomerSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-heading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -301,7 +301,7 @@ class CustomCustomerSectionWidget extends Widget_Base
             'text_align-desc',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -325,7 +325,7 @@ class CustomCustomerSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-desc',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -336,7 +336,7 @@ class CustomCustomerSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-desc',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

@@ -55,7 +55,7 @@
 }
 
 .tropical-section-right .useful-links {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     gap: 5px;
 }
@@ -65,9 +65,9 @@
     align-items: center;
 }
 
-.tropical-section-right .useful-links a:hover {
+/* .tropical-section-right .useful-links a:hover {
     color: #0065f2;
-}
+} */
 
 .tropical-section-right .useful-links a::after {
     content: '\f105';
@@ -112,9 +112,9 @@
     transition: all 0.3s;
 }
 
-.tropical-section-button:hover {
+/* .tropical-section-button:hover {
     background-color: transparent !important;
-}
+} */
 
 .tropical-section-close {
     display: inline-block;

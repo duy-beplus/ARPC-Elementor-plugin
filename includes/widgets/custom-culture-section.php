@@ -860,9 +860,9 @@ class CustomCultureSectionWidget extends Widget_base
         // $slides_per_view_tablet = $this->get_settings_for_display('sliders_per_view_tablet') ? $this->get_settings_for_display('sliders_per_view_tablet') : $slides_per_view;
         // $slides_per_view_mobile = $this->get_settings_for_display('sliders_per_view_mobile') ? $this->get_settings_for_display('sliders_per_view_mobile') : $slides_per_view_tablet;
 
-        $space_between = $this->get_settings_for_display('space_between')['size'] ? $this->get_settings_for_display('space_between')['size'] : 30;
-        $space_between_tablet = $this->get_settings_for_display('space_between_tablet')['size'] ? $this->get_settings_for_display('space_between_tablet')['size'] : $space_between;
-        $space_between_mobile = $this->get_settings_for_display('space_between_mobile')['size'] ? $this->get_settings_for_display('space_between_mobile')['size'] : $space_between_tablet;
+        // $space_between = $this->get_settings_for_display('space_between')['size'] ? $this->get_settings_for_display('space_between')['size'] : 30;
+        // $space_between_tablet = $this->get_settings_for_display('space_between_tablet')['size'] ? $this->get_settings_for_display('space_between_tablet')['size'] : $space_between;
+        // $space_between_mobile = $this->get_settings_for_display('space_between_mobile')['size'] ? $this->get_settings_for_display('space_between_mobile')['size'] : $space_between_tablet;
 
 
         $swiper_data = array(
@@ -870,16 +870,17 @@ class CustomCultureSectionWidget extends Widget_base
             'spaceBetween' => 20,
             'speed' => $settings['speed'],
             'loop' => $settings['loop'] == 'yes' ? true : false,
-            'breakpoints' => array(
-                767 => array(
-                    'slidesPerView' => /* $slides_per_view_tablet */ 1,
-                    'spaceBetween' => 20,
-                ),
-                1024 => array(
-                    'slidesPerView' => 1/* $slides_per_view */,
-                    'spaceBetween' => 20,
-                )
-            ),
+            // 'autoHeight' => true,
+            // 'breakpoints' => array(
+            //     767 => array(
+            //         'slidesPerView' => /* $slides_per_view_tablet */ 1,
+            //         'spaceBetween' => 20,
+            //     ),
+            //     1024 => array(
+            //         'slidesPerView' => 1/* $slides_per_view */,
+            //         'spaceBetween' => 20,
+            //     )
+            // ),
 
         );
 
@@ -890,13 +891,13 @@ class CustomCultureSectionWidget extends Widget_base
             );
         }
 
-        if ('' !== $settings['pagination']) {
-            $swiper_data['pagination'] = array(
-                'el' => '.elementor-swiper-pagination',
-                'type' => $settings['pagination'],
-                'clickable' => true,
-            );
-        }
+        // if ('' !== $settings['pagination']) {
+        //     $swiper_data['pagination'] = array(
+        //         'el' => '.elementor-swiper-pagination',
+        //         'type' => $settings['pagination'],
+        //         'clickable' => true,
+        //     );
+        // }
 
         if ($settings['autoplay'] === 'yes') {
             $swiper_data['autoplay'] = array(
@@ -970,18 +971,16 @@ class CustomCultureSectionWidget extends Widget_base
             <?php
         }
 
-        protected function render_pagination()
-        {
-            $settings = $this->get_settings_for_display();
+        // protected function render_pagination()
+        // {
+        //     $settings = $this->get_settings_for_display();
 
-            if ('' === $settings['pagination']) {
-                return;
-            }
+        //     if ('' === $settings['pagination']) {
+        //         return;
+        //     }
 
-            ?>
-                <div class="elementor-swiper-pagination"></div>
-            <?php
-        }
+        // <!-- <div class="elementor-swiper-pagination"></div> -->
+        // }
 
         public function render_loop_footer()
         {
