@@ -102,7 +102,7 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
         <!-- Result desciption -->
         <div class="result-description-wrapper _flex_wrap">
           <span>All Postcodes</span>
-          <a class="btn-download-excel" href="#"><i class="gg-software-download"></i> DOWNLOAD as Excel</a>
+          <div class="btn-download-excel"><i class="gg-software-download"></i> DOWNLOAD as Excel</div>
         </div>
         <!-- /Result desciption -->
       </form>
@@ -132,6 +132,7 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
             </tbody>
           </table>
         </div>
+        <div id="result-download"></div>
         <!-- Result Table -->
     </div>
     <?php

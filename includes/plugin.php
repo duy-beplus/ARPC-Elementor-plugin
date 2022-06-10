@@ -216,6 +216,10 @@ class Plugin
 		add_action( 'wp_ajax_load_postcodes_data', array( $this, 'load_postcodes_data_ajax' )  );
 		add_action( 'wp_ajax_nopriv_load_postcodes_data', array( $this, 'load_postcodes_data_ajax' ) );
 
+		//Postcodes Load ajax to Download
+		add_action( 'wp_ajax_load_postcodes_data_download', array( $this, 'load_postcodes_data_ajax_download' )  );
+		add_action( 'wp_ajax_nopriv_load_postcodes_data_download', array( $this, 'load_postcodes_data_ajax_download' ) );
+
 	}
 
 	function void_grid_post_type(){
@@ -250,7 +254,7 @@ class Plugin
 
 	}
 	// Filter Data Postcodes by Option
-	private function filter_post_code($postcode, $state, $tier){
+	public function filter_post_code($postcode, $state, $tier){
 
 			$filtered_arr_postcode = [];
 			$jsonString = get_field('postcodes_data', 'option');
@@ -258,23 +262,24 @@ class Plugin
 
 			$filtered_arr_postcode = array_filter(
 															$arrPostcodes,
-															function($arr) use ( $postcode){
-																 return $arr['Postcode'] == $postcode;
+															function($arr) use ( $postcode, $state, $tier){
+																	 $validate = true;
+																	 if ( $postcode ) {
+																		   if ( $arr['Postcode'] != $postcode )
+																			     $validate = false;
+																	 }
+																	 if ( $state ) {
+																		   if ( $arr['State'] != $state )
+																			     $validate = false;
+																	 }
+																	 if ( $tier ) {
+																		   if ( $arr['Tier'] != $tier )
+																			     $validate = false;
+																	 }
+																	 return $validate;
 															});
-			$filtered_arr_state = array_filter(
-														$arrPostcodes,
-														function($arr) use ( $state){
-															 return $arr['State'] == $state;
-														});
-			$filtered_arr_tier = array_filter(
-													$arrPostcodes,
-													function($arr) use ( $tier){
-														 return $arr['Tier'] == $tier;
-													});
 
 			return $filtered_arr_postcode;
-			return $filtered_arr_state;
-			return $filtered_arr_tier;
 	}
 
 	// Load Postcodes data Ajax
@@ -310,9 +315,52 @@ class Plugin
 		</table>
 		<!-- /Result table -->
 		<?php
-			echo ob_get_clean();
-
+		echo ob_get_clean();
   }
+
+	// Load Postcodes data Ajax to Download
+	public function load_postcodes_data_ajax_download(){
+		$postcode = (isset($_POST['postcode'])) ? $_POST['postcode'] : '';
+		$state = (isset($_POST['state'])) ? $_POST['state'] : '';
+    $tier = (isset($_POST['tier'])) ? $_POST['tier'] : '';
+
+		$results_download = array();
+
+		if ( ! $postcode && ! $state && ! $tier ) {
+				$jsonString = get_field('postcodes_data', 'option');
+			  $results_download = json_decode($jsonString, true);
+		} else {
+			 	$results_download = $this->filter_post_code($postcode, $state, $tier);
+		}
+
+		// File Name & Content Header For Download
+		// $file_name = "postcodes_data.xls";
+		// header("Content-Disposition: attachment; filename=\"$file_name\"");
+		// header("Content-Type: application/vnd.ms-excel");
+		//
+		// //To define column name in first row.
+		// $column_names = false;
+		// // run loop through each row in $customers_data
+		// foreach ($results_download as $row) {
+		//     if (!$column_names) {
+		//         echo implode("\t", array_keys($row)) . "\n";
+		//         $column_names = true;
+		//     }
+		//     // The array_walk() function runs each array element in a user-defined function.
+		//     array_walk($row, 'filterCustomerData');
+		//     echo implode("\t", array_values($row)) . "\n";
+		// }
+
+		wp_send_json($results_download);
+  }
+
+	// Filter Array to excel
+function filterDownloadData(&$str) {
+    $str = preg_replace("/\t/", "\\t", $str);
+    $str = preg_replace("/\r?\n/", "\\n", $str);
+    if (strstr($str, '"'))
+        $str = '"' . str_replace('"', '""', $str) . '"';
+}
 
 	//----------------Search Content Filter-------------
 	public function ica_content_filter_render( $atts ) {
