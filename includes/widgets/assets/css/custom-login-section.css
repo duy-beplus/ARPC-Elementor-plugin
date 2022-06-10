@@ -65,12 +65,14 @@
     margin: 0 auto !important;
 }
 
-@media (max-width: 767px) {
-    .login-section {
-        max-width: 480px;
-        margin: 0 auto;
+@media (max-width: 1024px) {
+    .login-section-close {
+        top: 20px;
+        right: 20px;
     }
+}
 
+@media (max-width: 767px) {
     .login-section-close {
         top: 10px;
         right: 10px;
