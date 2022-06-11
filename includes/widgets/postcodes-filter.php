@@ -132,7 +132,6 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
             </tbody>
           </table>
         </div>
-        <div id="result-download"></div>
         <!-- Result Table -->
     </div>
     <?php

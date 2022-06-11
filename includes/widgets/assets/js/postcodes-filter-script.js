@@ -58,10 +58,24 @@ $(document).ready(function(){
           },
           datatype: 'json',
           success:function(response){
-            console.log(response);
-            $('#result-download').html(response);
+
+            var dt = new Date();
+            var day = dt.getDate();
+            var month = dt.getMonth() + 1;
+            var year = dt.getFullYear();
+            var hour = dt.getHours();
+            var mins = dt.getMinutes();
+            var postfix = day + "." + month + "." + year + "_" + hour + "." + mins;
+            //getting data from our div that contains the HTML table
+            var a = document.createElement('a');
+            var data_type = 'data:application/vnd.ms-excel';
+            var table_div = response;
+            a.href = data_type + ', ' + table_div;
+            //setting the file name
+            a.download = 'Postcodes_' + postfix + '.xls';
+            //triggering the function
+            a.click();
           }
         });
-        window.open('data:application/vnd.ms-excel,' + $('#result-download').html());
     });
 });

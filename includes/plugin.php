@@ -340,15 +340,6 @@ class Plugin
 		    $table.= '<tr><td>'.  implode('</td><td>', $row) . '</td></tr>';
 		}
 		$table.= '</tbody></table>';
-
-		header('Content-Encoding: UTF-8');
-		header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		header ("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
-		header ("Cache-Control: no-cache, must-revalidate");
-		header ("Pragma: no-cache");
-		header ("Content-type: application/x-msexcel;charset=UTF-8");
-		header ("Content-Disposition: attachment; filename=productsExport.xls" );
-
 		wp_send_json($table);
   }
 
