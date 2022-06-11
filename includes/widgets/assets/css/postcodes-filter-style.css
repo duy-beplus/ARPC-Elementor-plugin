@@ -30,6 +30,9 @@
   height: 34px;
   cursor: pointer;
 }
+#result-download{
+  display: none;
+}
 ._flex_wrap{
   display: flex;
   align-items: center;

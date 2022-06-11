@@ -265,7 +265,7 @@ class Plugin
 															function($arr) use ( $postcode, $state, $tier){
 																	 $validate = true;
 																	 if ( $postcode ) {
-																		   if ( $arr['Postcode'] != $postcode )
+																		   if ( strpos($arr['Postcode'], $postcode) == false)
 																			     $validate = false;
 																	 }
 																	 if ( $state ) {
@@ -303,7 +303,7 @@ class Plugin
 			</thead>
 			<tbody id="body-table">
 			<?php
-			 foreach ($results as  $result) {
+			 foreach ($results as $result) {
 			 ?>
 				<tr>
 					<td><?php echo $result['Postcode']; ?></td>
@@ -326,6 +326,7 @@ class Plugin
 
 		$results_download = array();
 
+		// if options don't change, get all array data
 		if ( ! $postcode && ! $state && ! $tier ) {
 				$jsonString = get_field('postcodes_data', 'option');
 			  $results_download = json_decode($jsonString, true);
@@ -333,25 +334,22 @@ class Plugin
 			 	$results_download = $this->filter_post_code($postcode, $state, $tier);
 		}
 
-		// File Name & Content Header For Download
-		// $file_name = "postcodes_data.xls";
-		// header("Content-Disposition: attachment; filename=\"$file_name\"");
-		// header("Content-Type: application/vnd.ms-excel");
-		//
-		// //To define column name in first row.
-		// $column_names = false;
-		// // run loop through each row in $customers_data
-		// foreach ($results_download as $row) {
-		//     if (!$column_names) {
-		//         echo implode("\t", array_keys($row)) . "\n";
-		//         $column_names = true;
-		//     }
-		//     // The array_walk() function runs each array element in a user-defined function.
-		//     array_walk($row, 'filterCustomerData');
-		//     echo implode("\t", array_values($row)) . "\n";
-		// }
+		date_default_timezone_set('America/Los_Angeles');
+		$table = '<table><tbody><tr><td>Postcodes</td><td>States</td><td>Tier</td></tr>';
+		foreach ($results_download as $row) {
+		    $table.= '<tr><td>'.  implode('</td><td>', $row) . '</td></tr>';
+		}
+		$table.= '</tbody></table>';
 
-		wp_send_json($results_download);
+		header('Content-Encoding: UTF-8');
+		header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		header ("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
+		header ("Cache-Control: no-cache, must-revalidate");
+		header ("Pragma: no-cache");
+		header ("Content-type: application/x-msexcel;charset=UTF-8");
+		header ("Content-Disposition: attachment; filename=productsExport.xls" );
+
+		wp_send_json($table);
   }
 
 	// Filter Array to excel
@@ -392,7 +390,6 @@ function filterDownloadData(&$str) {
 			'select_team' => ''
 	), $atts, 'ica_content_filter' );
 
-	// in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
 	ob_start();
 	include(ELEMENT_ADDON_TEMPLATE.'content-filter/form-search.php');
 	return ob_get_clean();

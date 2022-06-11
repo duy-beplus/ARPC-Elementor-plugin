@@ -32,7 +32,7 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
 
   public function get_style_depends()
   {
-    wp_register_style("postcodes_filter_style", plugins_url('assets/css/postcodes-filter-style.css', __FILE__));
+    wp_register_style("postcodes_filter_style", plugins_url('assets/css/postcodes-filter-style.css', __FILE__), true);
     return [
       'postcodes_filter_style'
     ];
@@ -40,7 +40,7 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
 
   public function get_script_depends()
   {
-    wp_register_script('postcodes_filter_script', plugins_url('assets/js/postcodes-filter-script.js', __FILE__));
+    wp_register_script('postcodes_filter_script', plugins_url('assets/js/postcodes-filter-script.js', __FILE__) );
     wp_localize_script( 'postcodes_filter_script', 'ajaxObject', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' )) );
     return [
       'postcodes_filter_script'
