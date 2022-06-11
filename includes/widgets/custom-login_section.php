@@ -104,11 +104,47 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-background',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .login-section' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'close_button_color',
+            [
+                'label' => 'Close button color',
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .login-section-close button i' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_control(
+            'close_button_size',
+            [
+                'label' => 'Close button size',
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                        'step' => 1,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 24,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .login-section-close button i' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -142,7 +178,7 @@ class CustomLoginSectionWidget extends Widget_Base
             'text_align-heading',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -166,7 +202,7 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-heading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -177,7 +213,7 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-heading',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -215,7 +251,7 @@ class CustomLoginSectionWidget extends Widget_Base
             'text_align-desc',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -239,7 +275,7 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-desc',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -250,7 +286,7 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-desc',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -317,6 +353,15 @@ class CustomLoginSectionWidget extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
+        $this->start_controls_tabs(
+            'button_style_tabs'
+        );
+        $this->start_controls_tab(
+            'button-normal',
+            [
+                'label' => 'Normal'
+            ]
+        );
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -348,7 +393,7 @@ class CustomLoginSectionWidget extends Widget_Base
             'text_align-button',
             [
                 'label' => esc_html__('Alignment', 'plugin-name'),
-                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'flex-start' => [
                         'title' => esc_html__('Left', 'plugin-name'),
@@ -372,7 +417,7 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'padding-button',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Padding',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -383,7 +428,7 @@ class CustomLoginSectionWidget extends Widget_Base
         $this->add_responsive_control(
             'margin-button',
             [
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'label' => 'Margin',
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -399,6 +444,46 @@ class CustomLoginSectionWidget extends Widget_Base
                 'selector' => '{{WRAPPER}} .login-section-button',
             ]
         );
+        $this->end_controls_tab();
+        // End Normal tab for button
+        // Start Hover tab for Button
+        $this->start_controls_tab(
+            'button_style_hover',
+            [
+                'label' => 'Hover',
+            ]
+        );
+        $this->add_control(
+            'color-button-text-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Text color',
+                'selectors' => [
+                    '{{WRAPPER}} .login-section-button:hover' => 'color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_control(
+            'color-button-hover',
+            [
+                'type' => Controls_Manager::COLOR,
+                'label' => 'Button color',
+                'selectors' => [
+                    '{{WRAPPER}} .login-section-button:hover' => 'background-color: {{VALUE}}'
+                ]
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'border-button-hover',
+                'label' => 'Border',
+                'selector' => '{{WRAPPER}} .tropical-section-button:hover',
+            ]
+        );
+        $this->end_controls_tab();
+        // End Hover control tab for button
+        $this->end_controls_tabs();
         $this->end_controls_section();
     }
     // Render

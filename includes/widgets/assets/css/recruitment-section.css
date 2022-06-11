@@ -20,7 +20,7 @@
 }
 
 .item-link:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid;
 }
 
 .item-link {
@@ -29,8 +29,7 @@
     line-height: 1.4em;
     letter-spacing: 0.1px;
     color: #0065f2;
-    display: flex;
-    align-items: center;
+    display: inline;
 }
 
 .item-link i {
