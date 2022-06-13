@@ -219,7 +219,7 @@ class Plugin
 	public function frontend_styles()
 	{
 		wp_register_style('frontend-style-1', plugins_url('arpc-elementor-addon/assets/css/main.css'));
-		wp_register_style('frontend-style-2', plugins_url('ARPC Elementor Addon/assets/css/main.css'));
+		wp_register_style('frontend-style-2', plugins_url('ARPC-Elementor-plugin/assets/css/main.css'));
 		wp_enqueue_style('frontend-style-1');
 		wp_enqueue_style('frontend-style-2');
 	}
