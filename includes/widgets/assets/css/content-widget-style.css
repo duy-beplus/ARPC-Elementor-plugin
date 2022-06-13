@@ -1,10 +1,17 @@
-<<<<<<< HEAD
 .navigation-left ul{
-=======
-ul {
->>>>>>> 0116d3e1bc99b42c4aa0065bbab35f69bbb5bd68
   padding: 0;
+  margin: 0;
   list-style: none;
+}
+.navigation-left li{
+  padding: 0;
+  margin: 0;
+}
+
+.content-editor-block h2{
+  margin: 0 auto 20px;
+  letter-spacing: 0.6px;
+  font-size: 36px;
 }
 
 .content-editor-block p {
