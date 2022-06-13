@@ -405,7 +405,7 @@ class Community_FAQ_Widgets extends \Elementor\Widget_Base {
           <div class="faqs-share-block">
             <?php
             if ( 'yes' === $settings['show_button'] ) {
-              echo '<button class="btn-faqs-share" type="button">' . $settings['share_button_text'] . '<i class="fa fa-link"></i></button>';
+              echo '<div class="btn-faqs-share">' . $settings['share_button_text'] . '<i class="fa fa-link"></i></div>';
             }
              ?>
              <div class="share-socials-block">
