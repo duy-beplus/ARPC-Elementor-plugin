@@ -219,7 +219,9 @@ class Plugin
 	public function frontend_styles()
 	{
 		wp_register_style('frontend-style-1', plugins_url('arpc-elementor-addon/assets/css/main.css'));
+		wp_register_style('frontend-style-2', plugins_url('ARPC Elementor Addon/assets/css/main.css'));
 		wp_enqueue_style('frontend-style-1');
+		wp_enqueue_style('frontend-style-2');
 	}
 
 	function void_grid_post_type()
@@ -280,34 +282,34 @@ class Plugin
 		$results = $this->filter_post_code($postcode, $state, $tier);
 
 		ob_start();
-		?>
+?>
 		<div class="filter-matches">
-		<?php
-			if(!$postcode && !$state && !$tier){
+			<?php
+			if (!$postcode && !$state && !$tier) {
 				echo '<span>All Postcodes</span>';
 			}
-			if($postcode && $state && $tier){
-				echo '<span>Postcodes for matches on '.$postcode.' & '.$state.' & Tier '.$tier.'</span>';
+			if ($postcode && $state && $tier) {
+				echo '<span>Postcodes for matches on ' . $postcode . ' & ' . $state . ' & Tier ' . $tier . '</span>';
 			}
-			if($postcode && $state && !$tier){
-				echo '<span>Postcodes for matches on '.$postcode.' & '.$state.'</span>';
+			if ($postcode && $state && !$tier) {
+				echo '<span>Postcodes for matches on ' . $postcode . ' & ' . $state . '</span>';
 			}
-			if($postcode && !$state && $tier){
-				echo '<span>Postcodes for matches on '.$postcode.' & Tier '.$tier.'</span>';
+			if ($postcode && !$state && $tier) {
+				echo '<span>Postcodes for matches on ' . $postcode . ' & Tier ' . $tier . '</span>';
 			}
-			if(!$postcode && $state && $tier){
-				echo '<span>Postcodes for matches on '.$state.' & '.$tier.'</span>';
+			if (!$postcode && $state && $tier) {
+				echo '<span>Postcodes for matches on ' . $state . ' & ' . $tier . '</span>';
 			}
-			if($postcode && !$state && !$tier){
-				echo '<span>Postcodes for matches on '.$postcode.'</span>';
+			if ($postcode && !$state && !$tier) {
+				echo '<span>Postcodes for matches on ' . $postcode . '</span>';
 			}
-			if(!$postcode && $state && !$tier){
-				echo '<span>Postcodes for matches on '.$state.'</span>';
+			if (!$postcode && $state && !$tier) {
+				echo '<span>Postcodes for matches on ' . $state . '</span>';
 			}
-			if(!$postcode && !$state && $tier){
-				echo '<span>Postcodes for matches on Tier '.$tier.'</span>';
+			if (!$postcode && !$state && $tier) {
+				echo '<span>Postcodes for matches on Tier ' . $tier . '</span>';
 			}
-		 ?>
+			?>
 		</div>
 		<!-- Result table -->
 		<table id="postcodes-table">
@@ -357,17 +359,18 @@ class Plugin
 		foreach ($results_download as $row) {
 			$table .= '<tr><td>' .  implode('</td><td>', $row) . '</td></tr>';
 		}
-		$table.= '</tbody></table>';
+		$table .= '</tbody></table>';
 
 		wp_send_json($table);
 	}
 
 	// Filter Array to excel
-	function filterDownloadData(&$str) {
-	    $str = preg_replace("/\t/", "\\t", $str);
-	    $str = preg_replace("/\r?\n/", "\\n", $str);
-	    if (strstr($str, '"'))
-	        $str = '"' . str_replace('"', '""', $str) . '"';
+	function filterDownloadData(&$str)
+	{
+		$str = preg_replace("/\t/", "\\t", $str);
+		$str = preg_replace("/\r?\n/", "\\n", $str);
+		if (strstr($str, '"'))
+			$str = '"' . str_replace('"', '""', $str) . '"';
 	}
 
 	//----------------Search Content Filter-------------
