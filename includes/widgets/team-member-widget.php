@@ -690,7 +690,7 @@ class TeamMemberWidget extends Widget_Base
                                             <?php the_field('member_position', $board['repeater-board']) ?>
                                         </div>
                                         <div class="info-term">
-                                            <?php the_field('member_term', $board['repeater-board']) ?>
+                                            Term: <?php the_field('member_term', $board['repeater-board']) ?>
                                         </div>
                                     </div>
                                     <div class="post-content-desc">
@@ -742,7 +742,7 @@ class TeamMemberWidget extends Widget_Base
                                             <?php the_field('member_position', $leadership) ?>
                                         </div>
                                         <div class="info-term">
-                                            <?php the_field('member_term', $leadership) ?>
+                                            Term: <?php the_field('member_term', $leadership) ?>
                                         </div>
                                     </div>
                                     <div class="post-content-desc">
@@ -771,7 +771,7 @@ class TeamMemberWidget extends Widget_Base
                                             <?php the_field('member_position', $leadership['repeater-leadership']) ?>
                                         </div>
                                         <div class="info-term">
-                                            <?php the_field('member_term', $leadership['repeater-leadership']) ?>
+                                            Term: <?php the_field('member_term', $leadership['repeater-leadership']) ?>
                                         </div>
                                     </div>
                                     <div class="post-content-desc">
