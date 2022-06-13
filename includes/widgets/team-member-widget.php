@@ -661,7 +661,7 @@ class TeamMemberWidget extends Widget_Base
                                             <?php the_field('member_position', $board) ?>
                                         </div>
                                         <div class="info-term">
-                                            <?php the_field('member_term', $board) ?>
+                                            Term: <?php the_field('member_term', $board) ?>
                                         </div>
                                     </div>
                                     <div class="post-content-desc">

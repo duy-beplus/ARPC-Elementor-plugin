@@ -1,5 +1,4 @@
 .recruitment-section {
-    padding-bottom: 45px;
     max-width: 1140px;
     padding-left: 15px;
     padding-right: 15px;
@@ -11,7 +10,7 @@
     justify-content: space-between;
     gap: 30px;
     margin-top: 61px;
-    margin-bottom: 54px;
+    margin-bottom: 73px;
     flex-wrap: wrap;
 }
 
@@ -47,6 +46,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.recruitment-section-more:hover span {
+    border-bottom: 1px solid #0065f2;
 }
 
 .recruitment-section-more i {

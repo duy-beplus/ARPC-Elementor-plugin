@@ -1,40 +1,51 @@
+<<<<<<< HEAD
 .navigation-left ul{
+=======
+ul {
+>>>>>>> 0116d3e1bc99b42c4aa0065bbab35f69bbb5bd68
   padding: 0;
   list-style: none;
 }
-.content-editor-block p{
+
+.content-editor-block p {
   margin-bottom: 15px;
 }
 
-.community-content-container{
+.community-content-container {
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
 }
-.content-heading{
+
+.content-heading {
   font-size: 40px;
   margin: 26px 0;
   width: 40%;
 }
-.navigation-left{
+
+.navigation-left {
   width: 25%;
 }
-.nav-line{
+
+.nav-line {
   width: 100%;
   margin-top: 20px;
   height: 1px;
   background-color: #0065f2;
 }
-.navigation-left .nav-heading{
+
+.navigation-left .nav-heading {
   margin-top: 26px;
   margin-bottom: 4px;
 }
-.nav-list-item{
+
+.nav-list-item {
   margin-bottom: 6px;
   display: flex;
   align-items: center;
 }
-.nav-list-item::before{
+
+.nav-list-item::before {
   content: "";
   display: block;
   width: 7px;
@@ -42,59 +53,69 @@
   background-color: #0065f2;
   margin-right: 4px;
 }
+
 .useful-list-link:hover,
-.nav-list-link:hover{
+.nav-list-link:hover {
   text-decoration: underline;
 }
-.useful-heading{
+
+.useful-heading {
   margin-top: 26px;
   margin-bottom: 4px;
 }
- .useful-list-item{
+
+.useful-list-item {
   display: flex;
   margin-bottom: 6px;
+  align-items: center;
 }
-.useful-icon-wrapper{
+
+.useful-icon-wrapper {
   margin-top: -2px;
   padding-right: 6px;
 }
-.useful-icon-wrapper i::before{
+
+.useful-icon-wrapper i::before {
   font-size: 14px;
 }
-.content-editor-block{
+
+.content-editor-block {
   width: 46%;
   margin-left: -100px;
 }
-.btn-sharing{
+
+.btn-sharing {
   font-size: 16px;
   cursor: pointer;
   float: right;
-  background: transparent!important;
-  border: none!important;
-  padding: 0!important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
   color: #0065f2;
 }
+
 .icon-plus {
   margin-bottom: -3px;
   margin-left: 4px;
-  display:inline-block;
-  width:18px;
-  height:18px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
   background:
     linear-gradient(#0065f2 0 0),
     linear-gradient(#0065f2 0 0);
-  background-position:center;
-  background-size: 100% 2px,2px 100%;
-  background-repeat:no-repeat;
+  background-position: center;
+  background-size: 100% 2px, 2px 100%;
+  background-repeat: no-repeat;
 }
-.share-socials-box{
+
+.share-socials-box {
   display: none;
   position: absolute;
   transform: translateY(30px);
 }
 
 @media only screen and (max-width: 780px) {
-  .share-socials-box{
+  .share-socials-box {
     transform: translateY(-15px);
   }
 }

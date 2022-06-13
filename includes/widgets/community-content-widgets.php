@@ -1,4 +1,7 @@
 <?php
+
+use Elementor\Controls_Manager;
+
 if (!defined('ABSPATH')) {
   exit; // Exit if accessed directly.
 }
@@ -633,7 +636,22 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
         'label' => 'Content',
         'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 2,
-        'default' => 'We’re hiring. View our latest job postings here',
+        'default' => "We're hiring. View our latest job postings here",
+      ]
+    );
+    $this->add_control(
+      'announcment-link',
+      [
+        'label' => 'Annoucment link',
+        'type' => Controls_Manager::URL,
+        'placeholder' => 'https://your-link.com',
+        'default' => [
+          'url' => '',
+          'is_external' => true,
+          'nofollow' => true,
+          'custom_attributes' => '',
+        ],
+        'label_block' => 'false',
       ]
     );
     $this->end_controls_section();
@@ -681,6 +699,9 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
   {
     // generate the final HTML on the frontend using PHP
     $settings = $this->get_settings_for_display();
+    if (!empty($settings['announcment-link']['url'])) {
+      $this->add_link_attributes('announcment-link', $settings['announcment-link']);
+    }
 ?>
     <div class="community-content-editor">
       <div class="content-heading-block">
@@ -730,9 +751,9 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
                   <?php \Elementor\Icons_Manager::render_icon($settings['announcment-icon'], ['aria-hidden' => 'true']); ?>
                   <?php echo $settings['announcment-heading'] ?>
                 </h3>
-                <p class="announcment-content">
+                <a <?php echo $this->get_render_attribute_string('announcment-link'); ?> class="announcment-content">
                   <?php echo $settings['announcment-content'] ?>
-                </p>
+                </a>
               </div>
             <?php endif; ?>
           </div>

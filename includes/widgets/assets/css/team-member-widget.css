@@ -8,7 +8,7 @@
 .team_member-section {
     max-width: 950px;
     margin: 0 auto;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .team_member-section-list {
@@ -115,7 +115,7 @@
     line-height: 1.4em;
     letter-spacing: 0.1px;
     color: #0065f2;
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 

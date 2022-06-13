@@ -59,6 +59,7 @@ $(document).ready(function () {
         else {
             $('.team_member-section-posts').removeClass('team_member-section-posts-expand').css('transition', '0.3s')
             $('.team_member-section-posts').addClass('team_member-section-posts-expanded').css('transition', '0.3s')
+            $('.team_member-expand').css('margin-top', '30px')
             $('.team_member-expand span').html('Close')
             $('.team_member-expand i').removeClass('fa-chevron-down')
             $('.team_member-expand i').addClass('fa-chevron-up')
