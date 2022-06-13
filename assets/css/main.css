@@ -1,7 +1,28 @@
-.arpc-custom-css h1, .arpc-custom-css h2, .arpc-custom-css h3, .arpc-custom-css h4, .arpc-custom-css h5 {
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+* {
+    padding: 0;
     margin: 0;
 }
 
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+.elementor-widget:not(:last-child) {
+    margin-bottom: 0 !important;
+}
+
+.arpc-custom-css h1, .arpc-custom-css h2, .arpc-custom-css h3, .arpc-custom-css h4, .arpc-custom-css h5 {
+    margin: initial;
+}
+
 .arpc-custom-css p {
-    margin-bottom: 0;
+    margin-bottom: initial;
 }
