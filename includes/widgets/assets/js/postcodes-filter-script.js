@@ -58,7 +58,6 @@ $(document).ready(function(){
           },
           datatype: 'json',
           success:function(response){
-
             var dt = new Date();
             var day = dt.getDate();
             var month = dt.getMonth() + 1;
@@ -72,7 +71,7 @@ $(document).ready(function(){
             var table_div = response;
             a.href = data_type + ', ' + table_div;
             //setting the file name
-            a.download = 'Postcodes_' + postfix + '.xls';
+            a.download = 'ARPC_Postcodes_' + postfix + '.xls';
             //triggering the function
             a.click();
           }

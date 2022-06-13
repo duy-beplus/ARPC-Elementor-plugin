@@ -24,11 +24,13 @@
   padding: 0 8px;
   cursor: pointer;
   height: 34px;
+  border-radius: 2px;
 }
 #postcodes-tiers{
   padding: 0 8px;
   height: 34px;
   cursor: pointer;
+  border-radius: 2px;
 }
 #result-download{
   display: none;
@@ -42,19 +44,31 @@
 .result-description-wrapper{
   justify-content: space-between;
 }
+.filter-matches{
+  position: absolute;
+  transform: translateY(-38px);
+}
 .btn-download-excel {
   cursor: pointer;
   display: flex;
   align-items: center;
   color: #0065f2;
 }
+.btn-download-excel:hover{
+  text-decoration: underline;
+}
 .btn-download-excel .gg-software-download{
   margin-right: 10px;
+}
+#postcodes-table{
+  margin: 0;
+  font-size: 18px;
 }
 #postcodes-table th{
   padding: 10px 15px;
   background-color: #0065f2;
   color: #fff;
+  font-weight: normal;
   border: 1px solid #ccc;
 }
 #postcodes-table td{

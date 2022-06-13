@@ -182,7 +182,7 @@ class Community_FAQ_Widgets extends \Elementor\Widget_Base {
     $this->add_control(
       'faqs_heading_color',
       [
-        'label' => esc_html__( 'Heading Color', 'community-elementor-addon' ),
+        'label' => esc_html__( 'Heading Color', 'arpc-elementor-addon' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
           '{{WRAPPER}} .faqs-heading-title' => 'color: {{VALUE}};',
@@ -193,7 +193,7 @@ class Community_FAQ_Widgets extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => esc_html__( 'Heading Typography', 'community-elementor-addon' ),
+        'label' => esc_html__( 'Heading Typography', 'arpc-elementor-addon' ),
         'name' => 'faqs_heading_typography',
         'selector' => '{{WRAPPER}} .faqs-heading-title',
       ]

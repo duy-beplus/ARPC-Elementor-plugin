@@ -292,6 +292,34 @@ class Plugin
 
 		ob_start();
 		?>
+		<div class="filter-matches">
+		<?php
+			if(!$postcode && !$state && !$tier){
+				echo '<span>All Postcodes</span>';
+			}
+			if($postcode && $state && $tier){
+				echo '<span>Postcodes for matches on '.$postcode.' & '.$state.' & Tier '.$tier.'</span>';
+			}
+			if($postcode && $state && !$tier){
+				echo '<span>Postcodes for matches on '.$postcode.' & '.$state.'</span>';
+			}
+			if($postcode && !$state && $tier){
+				echo '<span>Postcodes for matches on '.$postcode.' & Tier '.$tier.'</span>';
+			}
+			if(!$postcode && $state && $tier){
+				echo '<span>Postcodes for matches on '.$state.' & '.$tier.'</span>';
+			}
+			if($postcode && !$state && !$tier){
+				echo '<span>Postcodes for matches on '.$postcode.'</span>';
+			}
+			if(!$postcode && $state && !$tier){
+				echo '<span>Postcodes for matches on '.$state.'</span>';
+			}
+			if(!$postcode && !$state && $tier){
+				echo '<span>Postcodes for matches on Tier '.$tier.'</span>';
+			}
+		 ?>
+		</div>
 		<!-- Result table -->
 		<table id="postcodes-table">
 			<thead>
@@ -340,16 +368,17 @@ class Plugin
 		    $table.= '<tr><td>'.  implode('</td><td>', $row) . '</td></tr>';
 		}
 		$table.= '</tbody></table>';
+
 		wp_send_json($table);
   }
 
 	// Filter Array to excel
-function filterDownloadData(&$str) {
-    $str = preg_replace("/\t/", "\\t", $str);
-    $str = preg_replace("/\r?\n/", "\\n", $str);
-    if (strstr($str, '"'))
-        $str = '"' . str_replace('"', '""', $str) . '"';
-}
+	function filterDownloadData(&$str) {
+	    $str = preg_replace("/\t/", "\\t", $str);
+	    $str = preg_replace("/\r?\n/", "\\n", $str);
+	    if (strstr($str, '"'))
+	        $str = '"' . str_replace('"', '""', $str) . '"';
+	}
 
 	//----------------Search Content Filter-------------
 	public function ica_content_filter_render( $atts ) {

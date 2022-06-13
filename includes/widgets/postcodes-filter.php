@@ -40,9 +40,11 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
 
   public function get_script_depends()
   {
+    wp_register_script('simple_bootstrap_paginator', "assets/js/simple-bootstrap-paginator.js", false );
     wp_register_script('postcodes_filter_script', plugins_url('assets/js/postcodes-filter-script.js', __FILE__) );
     wp_localize_script( 'postcodes_filter_script', 'ajaxObject', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' )) );
     return [
+      'simple_bootstrap_paginator',
       'postcodes_filter_script'
     ];
   }
@@ -59,6 +61,158 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
     );
     $this->end_controls_section();
     // End Content Tab
+
+    // Start Style Tab
+    $this->start_controls_section(
+      'style_section',
+      [
+        'label' => esc_html__( 'Style', 'arpc-elementor-addon' ),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
+
+    $this->add_control(
+      'text_color',
+      [
+        'label' => esc_html__( 'Text Color', 'arpc-elementor-addon' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+          '{{WRAPPER}} .postcodes-filter-inner' => 'color: {{VALUE}};',
+          '{{WRAPPER}} #postcodes-number' => 'color: {{VALUE}};',
+          '{{WRAPPER}} #postcodes-states' => 'color: {{VALUE}};',
+          '{{WRAPPER}} #postcodes-tiers' => 'color: {{VALUE}};',
+        ],
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => esc_html__( 'Typography', 'arpc-elementor-addon' ),
+        'name' => 'typography',
+        'selector' => '{{WRAPPER}} .postcodes-filter-inner',
+      ]
+    );
+
+    $this->end_controls_section();
+
+    // Start Style Input number
+    $this->start_controls_section(
+      'input_postcodes_number',
+      [
+        'label' => esc_html__( 'Input Number', 'arpc-elementor-addon' ),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => esc_html__( 'Typography', 'arpc-elementor-addon' ),
+        'name' => 'input_number_typography',
+        'selector' => '{{WRAPPER}} #postcodes-number',
+      ]
+    );
+
+    $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'input_number_border',
+				'label' => esc_html__( 'Border', 'arpc-elementor-addon' ),
+				'selector' => '{{WRAPPER}} #postcodes-number',
+			]
+		);
+
+    $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'input_number_background',
+				'label' => esc_html__( 'Background', 'arpc-elementor-addon' ),
+				'types' => [ 'classic' ],
+				'selector' => '{{WRAPPER}} #postcodes-number',
+			]
+		);
+
+    $this->end_controls_section();
+
+    // Start Style Select State
+    $this->start_controls_section(
+      'select_state',
+      [
+        'label' => esc_html__( 'Select State', 'arpc-elementor-addon' ),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => esc_html__( 'Typography', 'arpc-elementor-addon' ),
+        'name' => 'select_state_typography',
+        'selector' => '{{WRAPPER}} #postcodes-states',
+      ]
+    );
+
+    $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'select_state_border',
+				'label' => esc_html__( 'Border', 'arpc-elementor-addon' ),
+				'selector' => '{{WRAPPER}} #postcodes-states',
+			]
+		);
+
+    $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'select_state_background',
+				'label' => esc_html__( 'Background', 'arpc-elementor-addon' ),
+				'types' => [ 'classic' ],
+				'selector' => '{{WRAPPER}} #postcodes-states',
+			]
+		);
+
+    $this->end_controls_section();
+
+    // Start Style Select Tier
+    $this->start_controls_section(
+      'select_tier',
+      [
+        'label' => esc_html__( 'Select Tier', 'arpc-elementor-addon' ),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => esc_html__( 'Typography', 'arpc-elementor-addon' ),
+        'name' => 'select_tier_typography',
+        'selector' => '{{WRAPPER}} #postcodes-tiers',
+      ]
+    );
+
+    $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'select_tier_border',
+				'label' => esc_html__( 'Border', 'arpc-elementor-addon' ),
+				'selector' => '{{WRAPPER}} #postcodes-tiers',
+			]
+		);
+
+    $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'select_tier_background',
+				'label' => esc_html__( 'Background', 'arpc-elementor-addon' ),
+				'types' => [ 'classic' ],
+				'selector' => '{{WRAPPER}} #postcodes-tiers',
+			]
+		);
+
+    $this->end_controls_section();
+    // End Style Tab
   }
 
   protected function render() {
@@ -101,7 +255,7 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
         <!-- /Select Tier -->
         <!-- Result desciption -->
         <div class="result-description-wrapper _flex_wrap">
-          <span>All Postcodes</span>
+          <span></span>
           <div class="btn-download-excel"><i class="gg-software-download"></i> DOWNLOAD as Excel</div>
         </div>
         <!-- /Result desciption -->
@@ -118,8 +272,8 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
             </thead>
             <tbody id="body-table">
             <?php
-             $jsonString = get_field('postcodes_data', 'option');
-             $arrPostcodes = json_decode($jsonString, true);
+            $jsonString = get_field('postcodes_data', 'option');
+            $arrPostcodes = json_decode($jsonString, true);
 
             foreach ($arrPostcodes as $keys => $values) {
              ?>
@@ -133,6 +287,8 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
           </table>
         </div>
         <!-- Result Table -->
+        <div id="pagination"></div>
+        <input type="hidden" id="totalPages" value="<?php echo $totalPages; ?>">
     </div>
     <?php
   }
