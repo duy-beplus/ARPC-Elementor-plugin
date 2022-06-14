@@ -245,7 +245,7 @@ class Plugin
 	public function filter_post_code($postcode, $state, $tier)
 	{
 
-		$filtered_arr_postcode = [];
+		// $filtered_arr_postcode = [];
 		$jsonString = get_field('postcodes_data', 'option');
 		$arrPostcodes = json_decode($jsonString, true);
 
@@ -340,7 +340,7 @@ class Plugin
 		</table>
 		<!-- /Result table -->
 		<?php
-		echo ob_get_clean();
+		echo ob_get_clean(); die;
 	}
 
 	// Load Postcodes data Ajax to Download
@@ -367,16 +367,7 @@ class Plugin
 		}
 		$table .= '</tbody></table>';
 
-		wp_send_json($table);
-	}
-
-	// Filter Array to excel
-	function filterDownloadData(&$str)
-	{
-		$str = preg_replace("/\t/", "\\t", $str);
-		$str = preg_replace("/\r?\n/", "\\n", $str);
-		if (strstr($str, '"'))
-			$str = '"' . str_replace('"', '""', $str) . '"';
+		wp_send_json($table); die;
 	}
 
 	//----------------Search Content Filter-------------

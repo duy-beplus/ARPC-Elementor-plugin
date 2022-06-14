@@ -238,9 +238,6 @@
          .nav-left-container {
             gap: 15px !important;
         }
-    .sharing-right {
-         width: 100% !important;
-        }
      .nav-left-container{
         display: flex;
         justify-content: space-between;

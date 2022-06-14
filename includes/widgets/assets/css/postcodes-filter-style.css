@@ -58,6 +58,12 @@
 .btn-download-excel:hover{
   text-decoration: underline;
 }
+@media only screen and (max-width: 780px) {
+  .btn-download-excel span{
+    display: none;
+  }
+}
+
 .btn-download-excel .gg-software-download{
   margin-right: 10px;
 }

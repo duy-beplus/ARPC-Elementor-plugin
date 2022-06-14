@@ -256,13 +256,13 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
         <!-- Result desciption -->
         <div class="result-description-wrapper _flex_wrap">
           <span></span>
-          <div class="btn-download-excel"><i class="gg-software-download"></i> DOWNLOAD as Excel</div>
+          <div class="btn-download-excel"><i class="gg-software-download"></i> <span>DOWNLOAD as Excel</span></div>
         </div>
         <!-- /Result desciption -->
       </form>
-        <!-- Result Table -->
+        <!-- Table -->
         <div class="postcodes-result-table"></div>
-        <!-- Result Table -->
+        <!-- Table -->
         <div id="pagination"></div>
         <input type="hidden" id="totalPages" value="<?php echo $totalPages; ?>">
     </div>
