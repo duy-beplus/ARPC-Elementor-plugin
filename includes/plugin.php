@@ -279,7 +279,13 @@ class Plugin
 		$state = (isset($_POST['state'])) ? $_POST['state'] : '';
 		$tier = (isset($_POST['tier'])) ? $_POST['tier'] : '';
 
-		$results = $this->filter_post_code($postcode, $state, $tier);
+		// if options don't change, get all array data
+		if (!$postcode && !$state && !$tier) {
+			$jsonString = get_field('postcodes_data', 'option');
+			$results = json_decode($jsonString, true);
+		} else {
+			$results = $this->filter_post_code($postcode, $state, $tier);
+		}
 
 		ob_start();
 ?>

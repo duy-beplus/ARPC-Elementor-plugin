@@ -46,7 +46,8 @@
 }
 .filter-matches{
   position: absolute;
-  transform: translateY(-38px);
+  transform: translateY(-36px);
+  font-size: 16px;
 }
 .btn-download-excel {
   cursor: pointer;

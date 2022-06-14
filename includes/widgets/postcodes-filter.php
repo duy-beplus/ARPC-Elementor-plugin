@@ -261,31 +261,7 @@ class Postcodes_Filter_Widgets extends \Elementor\Widget_Base
         <!-- /Result desciption -->
       </form>
         <!-- Result Table -->
-        <div class="postcodes-result-table">
-          <table id="postcodes-table">
-            <thead>
-              <tr>
-                <th>Postcode</th>
-                <th>State</th>
-                <th>Tier</th>
-              </tr>
-            </thead>
-            <tbody id="body-table">
-            <?php
-            $jsonString = get_field('postcodes_data', 'option');
-            $arrPostcodes = json_decode($jsonString, true);
-
-            foreach ($arrPostcodes as $keys => $values) {
-             ?>
-              <tr>
-                <td><?php echo $values['Postcode']; ?></td>
-                <td><?php echo $values['State']; ?></td>
-                <td><?php echo $values['Tier']; ?></td>
-              </tr>
-            <?php } ?>
-            </tbody>
-          </table>
-        </div>
+        <div class="postcodes-result-table"></div>
         <!-- Result Table -->
         <div id="pagination"></div>
         <input type="hidden" id="totalPages" value="<?php echo $totalPages; ?>">

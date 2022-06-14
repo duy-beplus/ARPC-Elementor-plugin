@@ -77,4 +77,25 @@ $(document).ready(function(){
           }
         });
     });
+
+    // event load all ajax data after load page
+    $(window).on("load", function() {
+          let number = $("#postcodes-number").val();
+          let state = $("#postcodes-states").val();
+          let tier = $("#postcodes-tiers").val();
+          // Ajax load array results after load page
+          $.ajax({
+            type: 'POST',
+            url: ajaxObject.ajaxUrl,
+            data:{
+              'action' : 'load_postcodes_data',
+              'postcode'  : number,
+              'state'  : state,
+              'tier'  : tier,
+            },
+            success:function(response){
+              $('.postcodes-result-table').html(response);
+            }
+          });
+      });
 });

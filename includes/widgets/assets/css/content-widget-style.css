@@ -30,19 +30,19 @@
 }
 
 .community-content-container {
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
+  margin: 20px 0;
+  position: relative;
 }
 
 .content-heading {
   font-size: 40px;
-  margin: 26px 0;
-  width: 40%;
+  margin: 26px 0 46px;
 }
 
 .navigation-left {
-  width: 25%;
+  position: absolute;
+  left: 0;
+  width: 20%;
 }
 
 .nav-line {
@@ -53,8 +53,7 @@
 }
 
 .navigation-left .nav-heading {
-  margin-top: 26px;
-  margin-bottom: 4px;
+  margin: 20px 0 4px 0;
 }
 
 .nav-list-item {
@@ -98,18 +97,20 @@
 }
 
 .content-editor-block {
-  width: 46%;
-  margin-left: -100px;
+  margin: auto;
+  max-width: 540px;
 }
 
 .btn-sharing {
   font-size: 16px;
   cursor: pointer;
-  float: right;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
+  background: transparent;
+  border: none;
+  padding: 6px;
   color: #0065f2;
+}
+.btn-sharing:hover{
+  text-decoration: underline;
 }
 
 .icon-plus {
@@ -126,6 +127,12 @@
   background-repeat: no-repeat;
 }
 
+.sharing-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .share-socials-box {
   display: none;
   position: absolute;
@@ -136,4 +143,157 @@
   .share-socials-box {
     transform: translateY(-15px);
   }
+}
+
+/* Fix CSS content editor */
+/* Responsive */
+.navigation-left .announcment-heading{
+  margin: 20px 0;
+}
+.navigation-left .useful-heading{
+  margin: 20px 0 4px 0;
+}
+ .navigation-left h3,  .navigation-left p,  .navigation-left a {
+    max-width: 190px;
+}
+
+ .nav-heading,  .useful-heading {
+    margin-top: 26px;
+}
+
+ .announcment-container {
+    border-top: 1px solid #0065f2;
+    margin-top: 25px;
+}
+ .announcment-heading {
+    margin: 0 0 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+ .btn-sharing {
+    text-transform: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    gap: 5px;
+}
+ .useful-list-item {
+    align-items: center;
+    gap: 4px;
+}
+
+ .nav-list-item {
+    align-items: center;
+    gap: 2px;
+    margin-top: 4px;
+}
+ .content-editor-block p {
+    margin-bottom: 25px;
+}
+
+@media (max-width : 1024px) {
+      .content-heading{
+        margin: 20px 0 36px;
+       line-height: 38px;
+       font-size: 36px;
+     }
+      .community-content-container {
+         flex-wrap: wrap;
+     }
+      .navigation-left {
+        position: unset;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 20px;
+     }
+      .nav-left-container {
+         display: flex;
+        gap: 50px;
+        justify-content: space-between;
+     }
+      .announcment-heading {
+         margin-top: 10px;
+     }
+      .announcment-container {
+         margin-left: 0 !important;
+     }
+
+      .useful-heading {
+         margin-top: 26px;
+     }
+}
+@media only screen and (max-width: 768px) {
+     .community-content-container{
+    display: inline;
+  }
+      .content-heading{
+         margin: 18px 0 32px;
+        line-height: 32px;
+        font-size: 32px;
+      }
+       .navigation-left {
+          width: 100%;
+        }
+         .nav-left-container {
+            gap: 15px !important;
+        }
+    .sharing-right {
+         width: 100% !important;
+        }
+     .nav-left-container{
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+     .navigation{
+        margin-right: 20px;
+    }
+      .content-editor-block{
+         /* width: 100%; */
+     }
+      .nav-heading{
+         margin-top: 16px;
+     }
+      .useful-heading{
+         margin-top: 16px;
+     }
+       .announcment-heading {
+         margin-top: 0px;
+     }
+
+}
+@media only screen and (max-width: 480px) {
+      .content-heading{
+         margin: 16px 0 20px;
+        line-height: 28px;
+        font-size: 28px;
+      }
+      .nav-heading{
+         margin-top: 10px;
+     }
+      .useful-heading{
+         margin-top: 10px;
+     }
+      .nav-line{
+         margin-top: 10px;
+     }
+      .content-editor-block{
+         font-size: 14px;
+         line-height: 20px;
+     }
+      .content-editor-block p{
+         margin-bottom: 10px;
+     }
+}
+
+@media (max-width: 1024px) {
+     .announcment-container {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
 }

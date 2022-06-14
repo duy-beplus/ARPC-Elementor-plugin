@@ -258,16 +258,6 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
       ]
     );
 
-    $this->add_control(
-      'sharing_url',
-      [
-        'label' => esc_html__('Sharing URL', 'arpc-elementor-addon'),
-        'type' => \Elementor\Controls_Manager::TEXTAREA,
-        'rows' => 2,
-        'label_block' => true,
-      ]
-    );
-
     $this->end_controls_section();
     // End Sharing Section
     // End Content Tab
@@ -697,6 +687,9 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
 
   protected function render()
   {
+    // get current page URL for share
+    global $wp;
+    $current_url = home_url(add_query_arg(array(), $wp->request));
     // generate the final HTML on the frontend using PHP
     $settings = $this->get_settings_for_display();
     if (!empty($settings['announcment-link']['url'])) {
@@ -766,12 +759,12 @@ class Community_Content_Widgets extends \Elementor\Widget_Base
 
         <!--  Sharing right -->
         <div class="sharing-right">
-          <button class="btn-sharing" class="" type="button">
+          <div class="btn-sharing" class="" type="button">
             <?php echo $settings['sharing_text'] ?>
             <div class="icon-plus"></div>
-          </button>
+          </div>
           <div class="share-socials-box">
-            <?php echo do_shortcode('[social-share-display display="1653549193" force="true" archive="true" custom="true" url="' . $settings['sharing_url'] . '" message="" image="" tweet="Custom tweet"]') ?>
+            <?php echo do_shortcode('[social-share-display display="1653549193" force="true" archive="true" custom="true" url="' . $current_url . '" message="" image="" tweet="Custom tweet"]') ?>
           </div>
         </div>
       </div>
