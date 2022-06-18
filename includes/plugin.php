@@ -531,7 +531,7 @@ class Plugin
 								<?php foreach ($filter['value'] as $key => $val) {
 									$text = ucwords(str_replace('-', ' ', $val));
 								?><span class="item-filter"><?php echo $text; ?> <i class="fa fa-times" data-filter="<?php echo $val; ?>"></i></span><?php
-																																					} ?>
+							} ?>
 							</div>
 						</div>
 				<?php
@@ -565,61 +565,52 @@ class Plugin
 			$item = 0;
 
 			if ($paged < 2) { ?> <div class="list-grids template-<?php echo $post_type . ($template ? '-' . $template : ''); ?>"> <?php }
-																																while ($the_query->have_posts()) {
-																																	$the_query->the_post();
-																																	include(ELEMENT_ADDON_TEMPLATE . 'content-filter/item-' . $post_type . ($template ? '-' . $template : '') . '.php');
-																																}
-																																if ($paged < 2) { ?></div> <?php }
-																																					} else {
-																																						$countpost = 0;
-																																							?> <div class="not-found">
-				<i class="fa fa-frown-o" aria-hidden="true"></i>
-				<div><?php echo __("No found result!"); ?></div>
-			</div> <?php
-																																					}
+											while ($the_query->have_posts()) {
+											$the_query->the_post();
+								include(ELEMENT_ADDON_TEMPLATE . 'content-filter/item-' . $post_type . ($template ? '-' . $template : '') . '.php');																				}
+											if ($paged < 2)
+											 { ?>
+											</div> <?php }
+											} else {
+											$countpost = 0;
+									?> <div class="not-found">
+										<i class="fa fa-frown-o" aria-hidden="true"></i>
+										<div><?php echo __("No found result!"); ?></div>
+									</div> <?php
+						}
 
-																																					if ($pagination && $the_query->max_num_pages > $paged && $paged < 2) {
+				if ($pagination && $the_query->max_num_pages > $paged && $paged < 2) {
 					?><div class="content-filter-pagination"><button type="button" name="button-showmore" data-type_filter="<?php echo $type_filter; ?>">Show more</button></div><?php
 																																												}
 
 																																												//Top content filter
 																																												if ($paged < 2) {
-																																													if (!empty($filters)) {
-																																														foreach ($filters as $key => $filter) {
-																																															if ($filter['name'] == 'resources-topics') {
-																																													?>
+																																													if (!empty($filters)) {																																														foreach ($filters as $key => $filter) {
+																																															if ($filter['name'] == 'resources-topics') {																																													?>
 						<div class="filter-selected">
 							<label for="">Selected filters by “Topic”</label>
 							<div class="list-selected">
-								<?php foreach ($filter['value'] as $key => $val) {
-																																																	$text = ucwords(str_replace('-', ' ', $val));
-								?><span class="item-filter"><?php echo $text; ?> <i class="fa fa-times" data-filter="<?php echo $val;  ?>"></i></span><?php
-																																																} ?>
+								<?php foreach ($filter['value'] as $key => $val) {																																					$text = ucwords(str_replace('-', ' ', $val));
+								?><span class="item-filter"><?php echo $text; ?> <i class="fa fa-times" data-filter="<?php echo $val;  ?>"></i></span><?php																																																} ?>
 							</div>
 						</div>
 <?php
-																																																break;
-																																															}
-																																														}
-																																													}
-																																												}
+											break;																												}																																}																																													}																													}
 
-																																												//check pagination
+																																		//check pagination
 																																												if ($_GLOBAL['wp_query']->max_num_pages == $paged) {
 																																													$result['pagination'] = false;
 																																												} else {
-																																													$result['pagination'] = true;
+																													$result['pagination'] = true;
 																																												}
 
 																																												$result['html'] = ob_get_clean();
 
-																																												$result['countpost'] = $countpost;
+																								$result['countpost'] = $countpost;
 																																												$result['totalpost'] = $totalpost;
 																																												$result['global'] = $cats_faq;
-
 																																												wp_send_json($result);
-																																											}
-
+																																}
 																																											public function ica_title_filter($where, &$wp_query)
 																																											{
 																																												global $wpdb;
@@ -627,32 +618,26 @@ class Plugin
 																																												if ($_search_key = $wp_query->get('_search_key')) {
 																																													$like_sql = ' OR (' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql($wpdb->esc_like($_search_key)) . '%\')';
 																																													$like_sql .= ' OR (' . $wpdb->posts . '.post_content LIKE \'%' . esc_sql($wpdb->esc_like($_search_key)) . '%\')';
-																																													$like_sql .= ' OR (' . $wpdb->posts . '.post_excerpt LIKE \'%' . esc_sql($wpdb->esc_like($_search_key)) . '%\')';
-																																													$where = str_replace(
-																																														") AND " . $wpdb->posts . ".post_type",
+																																													$like_sql .= ' OR (' . $wpdb->posts . '.post_excerpt LIKE \'%' . esc_sql($wpdb->esc_like($_search_key)) . '%\')';																																											$where = str_replace(
+																																												") AND " . $wpdb->posts . ".post_type",
 																																														$like_sql . " ) AND " . $wpdb->posts . ".post_type",
 																																														$where
-																																													);
+																																												);
 																																												}
-
-																																												if ($search_date = $wp_query->get('search_date')) {
-																																													$date = explode(',', $search_date);
+																																					if ($search_date = $wp_query->get('search_date')) {																																													$date = explode(',', $search_date);
 																																													if ($date[0] && !$date[1])
-																																														$where .= " AND post_date >= '" . $date[0] . "-01-01'";
-																																													if (!$date[0] && $date[1])
+																																				$where .= " AND post_date >= '" . $date[0] . "-01-01'";																																											if (!$date[0] && $date[1])
 																																														$where .= " AND post_date <= '" . $date[1] . "-12-31'";
 																																													if ($date[0] && $date[1])
 																																														$where .= " AND post_date >= '" . $date[0] . "-01-01'  AND post_date <= '" . $date[1] . "-12-31'";
 																																												}
-
-																																												return $where;
+																																										return $where;
 																																											}
-																																											//-------------End Search Content Filter--------------
-
-																																											/**
+																																										//-------------End Search Content Filter--------------
+																																										/**
 																																											 * Register Widgets
 																																											 *
-																																											 * Load widgets files and register new Elementor widgets.
+																																										 * Load widgets files and register new Elementor widgets.
 																																											 *
 																																											 * Fired by `elementor/widgets/register` action hook.
 																																											 *
@@ -676,6 +661,10 @@ class Plugin
 																																												require_once(__DIR__ . '/widgets/postcodes-filter.php');
 																																												$widgets_manager->register(new \Postcodes_Filter_Widgets());
 
+																																												// Custom Upload PDF file widget by Tuan
+																																												require_once(__DIR__ . '/widgets/upload-pdf-file.php');
+																																												$widgets_manager->register(new \Upload_PDF_file_Widgets());
+
 																																												// Login section widget by Duy
 																																												require_once(__DIR__ . '/widgets/custom-login_section.php');
 																																												$widgets_manager->register(new \CustomLoginSectionWidget);
@@ -683,34 +672,28 @@ class Plugin
 																																												// Featured section widget by Duy
 																																												require_once(__DIR__ . '/widgets/custom-tropical_section.php');
 																																												$widgets_manager->register(new \CustomTropicalSectionWidget);
-
-																																												// Customer section widget by Duy
+																																											// Customer section widget by Duy
 																																												require_once(__DIR__ . '/widgets/custom-customer-section.php');
 																																												$widgets_manager->register(new \CustomCustomerSectionWidget);
-
 																																												// Culture section widget by Duy
 																																												require_once(__DIR__ . '/widgets/custom-culture-section.php');
-																																												$widgets_manager->register(new \CustomCultureSectionWidget);
-
-																																												// Team member widget by Duy
+																																												$widgets_manager->register(new \CustomCultureSectionWidget);																																												// Team member widget by Duy
 																																												require_once(__DIR__ . '/widgets/team-member-widget.php');
 																																												$widgets_manager->register(new \TeamMemberWidget);
-
 																																												// Recruitment widget by Duy
 																																												require_once(__DIR__ . '/widgets/recruitment-section.php');
 																																												$widgets_manager->register(new \RecruitmentSectionWidget);
 																																											}
-
-																																											/**
+																																										/**
 																																											 * Register Controls
 																																											 *
-																																											 * Load controls files and register new Elementor controls.
+																																										 * Load controls files and register new Elementor controls.
 																																											 *
 																																											 * Fired by `elementor/controls/register` action hook.
 																																											 *
 																																											 * @param \Elementor\Controls_Manager $controls_manager Elementor controls manager.
-																																											 */
+																																										 */
 																																											public function register_controls($controls_manager)
 																																											{
-																																											}
-																																										}
+																				}
+																																																																																													}
